@@ -20,13 +20,13 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
           <li class="nav-item">
-            <b-link class="nav-link deco" to="/map">Find Resto</b-link>
+            <b-link class="nav-link deco" to="#home">Home</b-link>
           </li>
           <li class="nav-item">
-            <b-link class="nav-link deco" to="/addResto">Add Resto</b-link>
+            <b-link class="nav-link deco" to="#work">My Work</b-link>
           </li>
           <li class="nav-item">
-            <b-link class="nav-link deco" to="/about">About</b-link>
+            <b-link class="nav-link deco" to="#about">About</b-link>
           </li>
         </b-navbar-nav>
       </b-collapse>
