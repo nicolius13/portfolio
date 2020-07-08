@@ -1,14 +1,16 @@
 <template>
   <section id="about" class="about-me">
-    <h2 class="section_title section_about">Who I am</h2>
-    <p class="section_subtitle subtitle_about"></p>
+    <b-container>
+      <h2 class="section_title section_about">Who I am</h2>
+      <p class="section_subtitle subtitle">Lorem ipsum</p>
 
-    <div class="about-me_body">
-      <p></p>
-      <p></p>
-    </div>
+      <div class="about-me_body">
+        <p></p>
+        <p></p>
+      </div>
 
-    <b-img src="../assets/img/portrait.JPG" fluid alt="me again" />
+      <b-img src="../assets/img/portrait.JPG" fluid alt="me again" />
+    </b-container>
   </section>
 </template>
 
@@ -16,4 +18,10 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.subtitle {
+  background: $clr-accent;
+  font-family: $ff-secondary;
+  margin-bottom: 1em;
+}
+</style>

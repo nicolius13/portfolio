@@ -1,0 +1,70 @@
+// CUSTOM VARIABLES
+
+$ff-primary: 'Source Sans Pro', sans-serif;
+$ff-secondary: 'Source Code Pro', monospace;
+
+$fw-reg: 300;
+$fw-bold: 900;
+
+$clr-light: #fff;
+$clr-dark: #303030;
+$clr-accent: #16e0bd;
+
+$bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+  0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+
+// IMPORT BOOTSTRAP
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/bootstrap-vue/src/index.scss';
+// IMPORT RFS
+@import '../../node_modules/rfs/scss';
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* GENERAL STYLE */
+
+body {
+  background: $clr-light;
+  color: $clr-dark;
+  margin: 0;
+  font-family: $ff-primary;
+  line-height: 1.6;
+}
+
+section {
+  padding: 5em 0;
+}
+
+strong {
+  font-weight: $fw-bold;
+}
+/* Typography */
+
+h1 {
+  @include font-size(3rem);
+}
+h2 {
+  @include font-size(2.25rem);
+}
+h3 {
+  @include font-size(1.25rem);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+  margin: 0;
+}
+
+.section_title {
+  margin-bottom: 0.25em;
+}
+
+.section_subtitle {
+  margin: 0;
+  @include font-size(1.25rem);
+}
