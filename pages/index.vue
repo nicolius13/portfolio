@@ -4,25 +4,37 @@
       <b-tabs content-class="mt-3" align="center">
         <b-tab active>
           <template v-slot:title>
-            <font-awesome-icon :icon="['fas', 'home']" />
+            <font-awesome-icon
+              :icon="['fas', 'home']"
+              v-b-popover.hover.top="'Home'"
+            />
           </template>
           <Intro />
         </b-tab>
         <b-tab>
           <template v-slot:title>
-            <font-awesome-icon :icon="['fas', 'folder']" />
+            <font-awesome-icon
+              :icon="['fas', 'folder']"
+              v-b-popover.hover.top="'My Work'"
+            />
           </template>
           <Work />
         </b-tab>
         <b-tab>
           <template v-slot:title>
-            <font-awesome-icon :icon="['fas', 'address-card']" />
+            <font-awesome-icon
+              :icon="['fas', 'address-card']"
+              v-b-popover.hover.top="'About Me'"
+            />
           </template>
           <About />
         </b-tab>
         <b-tab>
           <template v-slot:title>
-            <font-awesome-icon :icon="['fas', 'envelope']" />
+            <font-awesome-icon
+              :icon="['fas', 'envelope']"
+              v-b-popover.hover.top="'Contact Me'"
+            />
           </template>
           Contact me !
         </b-tab>
@@ -50,6 +62,9 @@ export default {
 </script>
 
 <style lang="scss">
+.tabs {
+  margin-top: 2.25rem;
+}
 .nav-tabs {
   border: none;
 }
@@ -57,6 +72,7 @@ export default {
 .tab-content {
   padding: 2em;
   background: $clr-light;
+  border-radius: 5px;
 }
 
 .nav-tabs .nav-link {
@@ -101,5 +117,9 @@ export default {
 
 .nav-tabs .nav-link.active::after {
   @include rfs(1.5rem, border-bottom-width);
+}
+
+.popover {
+  top: -5px !important;
 }
 </style>

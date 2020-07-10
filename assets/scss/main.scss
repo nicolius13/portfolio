@@ -13,19 +13,27 @@ $clr-accent: #16e0bd;
 $bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
   0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 
+// Change bootstrap default value
+$container-max-widths: (
+  sm: 580px,
+  md: 800px,
+  lg: 960px,
+  xl: 1140px,
+);
+
 // IMPORT BOOTSTRAP
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/bootstrap-vue/src/index.scss';
 // IMPORT RFS
 @import '../../node_modules/rfs/scss';
+
+/* GENERAL STYLE */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
 }
-
-/* GENERAL STYLE */
 
 body {
   background: #000;
