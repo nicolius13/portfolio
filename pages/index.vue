@@ -1,48 +1,45 @@
 <template>
-  <div>
-    <b-container>
-      <b-tabs content-class="mt-3" align="center">
-        <b-tab active>
-          <template v-slot:title>
-            <font-awesome-icon
-              :icon="['fas', 'home']"
-              v-b-popover.hover.top="'Home'"
-            />
-          </template>
-          <Intro />
-        </b-tab>
-        <b-tab>
-          <template v-slot:title>
-            <font-awesome-icon
-              :icon="['fas', 'folder']"
-              v-b-popover.hover.top="'My Work'"
-            />
-          </template>
-          <Work />
-        </b-tab>
-        <b-tab>
-          <template v-slot:title>
-            <font-awesome-icon
-              :icon="['fas', 'address-card']"
-              v-b-popover.hover.top="'About Me'"
-            />
-          </template>
-          <About />
-        </b-tab>
-        <b-tab>
-          <template v-slot:title>
-            <font-awesome-icon
-              :icon="['fas', 'envelope']"
-              v-b-popover.hover.top="'Contact Me'"
-            />
-          </template>
-          Contact me !
-        </b-tab>
-      </b-tabs>
-    </b-container>
-
+  <b-container class="content">
+    <b-tabs content-class="mt-3" align="center">
+      <b-tab active>
+        <template v-slot:title>
+          <font-awesome-icon
+            :icon="['fas', 'home']"
+            v-b-popover.hover.top="'Home'"
+          />
+        </template>
+        <Intro />
+      </b-tab>
+      <b-tab>
+        <template v-slot:title>
+          <font-awesome-icon
+            :icon="['fas', 'folder']"
+            v-b-popover.hover.top="'My Work'"
+          />
+        </template>
+        <Work />
+      </b-tab>
+      <b-tab>
+        <template v-slot:title>
+          <font-awesome-icon
+            :icon="['fas', 'address-card']"
+            v-b-popover.hover.top="'About Me'"
+          />
+        </template>
+        <About />
+      </b-tab>
+      <b-tab>
+        <template v-slot:title>
+          <font-awesome-icon
+            :icon="['fas', 'envelope']"
+            v-b-popover.hover.top="'Contact Me'"
+          />
+        </template>
+        Contact me !
+      </b-tab>
+    </b-tabs>
     <Footer />
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -62,7 +59,7 @@ export default {
 </script>
 
 <style lang="scss">
-.tabs {
+.content {
   margin-top: 2.25rem;
 }
 .nav-tabs {
