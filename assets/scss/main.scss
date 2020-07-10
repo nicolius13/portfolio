@@ -22,12 +22,13 @@ $bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
 }
 
 /* GENERAL STYLE */
 
 body {
-  background: $clr-light;
+  background: #000;
   color: $clr-dark;
   margin: 0;
   font-family: $ff-primary;
