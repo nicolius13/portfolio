@@ -1,13 +1,15 @@
 <template>
   <b-col class="d-flex align-items-stretch" md="6" lg="4">
     <b-card
-      :title="project.title"
       :img-src="project.imgSrc"
       :img-alt="project.imgAlt"
       class="work_cards"
       footer-class="work_footer"
       img-top
     >
+      <b-card-title class="card_title">
+        {{ project.title }}
+      </b-card-title>
       <b-card-text>
         {{ project.description }}
       </b-card-text>
@@ -42,6 +44,10 @@ export default {
 <style lang="scss" scoped>
 .work_cards {
   margin: 1em 0;
+
+  .card_title {
+    color: $clr-accent2;
+  }
 }
 
 .work_footer {
