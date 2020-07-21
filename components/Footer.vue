@@ -7,12 +7,20 @@
         </a>
       </li>
       <li class="social-list_item">
-        <a target="blank" class="social-list_link icon" href="">
+        <a
+          target="blank"
+          class="social-list_link icon"
+          href="https://github.com/nicolius13"
+        >
           <font-awesome-icon :icon="['fab', 'github-square']" />
         </a>
       </li>
       <li class="social-list_item">
-        <a target="blank" class="social-list_link icon" href="">
+        <a
+          target="blank"
+          class="social-list_link icon"
+          href="https://www.linkedin.com/in/nicolas-vastrade"
+        >
           <font-awesome-icon :icon="['fab', 'linkedin']" />
         </a>
       </li>
