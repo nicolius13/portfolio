@@ -1,6 +1,6 @@
 <template>
   <b-container class="content">
-    <b-tabs content-class="mt-3" align="center">
+    <b-tabs v-model="tabIndex" content-class="mt-3" align="center">
       <b-tab active>
         <template v-slot:title>
           <font-awesome-icon
@@ -8,7 +8,7 @@
             v-b-popover.hover.top="'Home'"
           />
         </template>
-        <Intro />
+        <Intro @seeWork="tabIndex = 1" />
       </b-tab>
       <b-tab>
         <template v-slot:title>
@@ -54,6 +54,11 @@ export default {
     About,
     Work,
     Footer,
+  },
+  data() {
+    return {
+      tabIndex: 0,
+    };
   },
 };
 </script>
