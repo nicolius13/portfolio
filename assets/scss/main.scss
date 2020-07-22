@@ -46,11 +46,21 @@ body {
 
 section {
   padding: 5em 0;
+  width: 100%;
 }
 
 strong {
   font-weight: $fw-bold;
 }
+
+a {
+  color: $clr-accent2;
+  transition: all 0.25s ease-in-out;
+}
+a:hover {
+  color: $clr-accent;
+}
+
 /* Typography */
 
 h1 {

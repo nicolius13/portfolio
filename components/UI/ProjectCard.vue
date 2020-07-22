@@ -56,11 +56,6 @@ export default {
 
   a {
     padding-right: 1em;
-    color: $clr-accent2;
-    transition: all 0.25s ease-in-out;
-  }
-  a:hover {
-    color: $clr-accent;
   }
 }
 </style>
