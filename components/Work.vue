@@ -100,10 +100,9 @@ export default {
 
 <style lang="scss" scoped>
 .section_title {
-  background: $clr-accent;
-  font-family: $ff-secondary;
-  @include font-size(1.75rem);
-  padding: 0.5em 1em;
-  margin-bottom: 1em;
+  color: $clr-accent;
+  font-weight: $fw-bold;
+  @include font-size(4rem);
+  margin-bottom: 2rem;
 }
 </style>

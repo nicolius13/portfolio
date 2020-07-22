@@ -42,14 +42,6 @@ export default {};
   box-shadow: $bs;
 }
 
-.subtitle {
-  background: $clr-accent;
-  font-family: $ff-secondary;
-  @include font-size(1.75rem);
-  padding: 0.25em 1em;
-  margin-bottom: 1em;
-}
-
 .seeWork {
   display: block;
   @include font-size(1.75rem);
@@ -88,13 +80,7 @@ export default {};
     }
 
     .subtitle {
-      align-self: start;
-      grid-column: -1 / 1;
-      grid-row: 2;
       text-align: right;
-      position: relative;
-      left: -1.5em;
-      width: calc(100% + 1.5em);
     }
   }
 }

@@ -88,3 +88,21 @@ h3 {
   margin: 0;
   @include font-size(1.25rem);
 }
+
+.subtitle {
+  background: $clr-accent;
+  font-family: $ff-secondary;
+  @include font-size(1.75rem);
+  padding: 0.25em 1em;
+  margin-bottom: 1em;
+}
+@media (min-width: 768px) {
+  .subtitle {
+    align-self: start;
+    grid-column: -1 / 1;
+    grid-row: 2;
+    position: relative;
+    left: -1.5em;
+    width: calc(100% + 1.5em);
+  }
+}
