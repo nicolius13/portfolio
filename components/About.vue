@@ -7,7 +7,11 @@
       <div class="about-me_body">
         <p>
           Hello, i'm Nicolas Vastrade, i'm specialize in Vue.Js/Nuxt.js web app.
-          But I can a lot of other thinks also.
+          But I can do a lot of other thinks also.
+        </p>
+        <p>
+          You can download my
+          <a href="/CV.pdf" download>RESUME</a>
         </p>
         <h3>Technologies that I know:</h3>
         <b-row align-v="center" align-h="center">
