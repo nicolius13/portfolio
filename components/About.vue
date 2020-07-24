@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <section id="about" class="about-me text-center text-md-left">
+    <section class="about-me text-center text-md-left">
       <h2 class="section_title section_about">Who I am</h2>
       <p class="section_subtitle subtitle">Front-end developer based in Laos</p>
 
@@ -9,7 +9,7 @@
           Hello, i'm Nicolas Vastrade, i'm specialize in Vue.Js/Nuxt.js web app.
           But I can a lot of other thinks also.
         </p>
-        <p>Technologie that I know</p>
+        <h3>Technologies that I know:</h3>
         <b-row align-v="center" align-h="center">
           <b-col
             v-for="logo in logos"

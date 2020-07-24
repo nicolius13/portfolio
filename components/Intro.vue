@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <section id="home" class="intro text-center text-md-left">
+    <section class="intro text-center text-md-left">
       <h1 class="section_title title">
         Hi, I m <strong>Nicolas Vastrade</strong>
       </h1>
@@ -14,7 +14,6 @@
         alt="A photo of me :)"
       />
     </section>
-
     <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
       Come and see what I can do
       <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
@@ -82,6 +81,10 @@ export default {};
     .subtitle {
       text-align: right;
     }
+  }
+  .seeWork {
+    margin: 0 auto;
+    max-width: 740px;
   }
 }
 </style>

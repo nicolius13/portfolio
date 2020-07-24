@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <section id="work" class="my-work">
+    <section class="my-work">
       <h2 class="section_title">My work</h2>
       <b-row>
         <ProjectCard

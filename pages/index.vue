@@ -35,7 +35,7 @@
             v-b-popover.hover.top="'Contact Me'"
           />
         </template>
-        Contact me !
+        <Contact />
       </b-tab>
     </b-tabs>
     <Footer />
@@ -47,6 +47,7 @@ import Intro from '@/components/Intro';
 import About from '@/components/About';
 import Work from '@/components/Work';
 import Footer from '@/components/Footer';
+import Contact from '@/components/Contact';
 
 export default {
   components: {
@@ -54,6 +55,7 @@ export default {
     About,
     Work,
     Footer,
+    Contact,
   },
   data() {
     return {
