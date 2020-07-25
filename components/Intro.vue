@@ -2,11 +2,37 @@
   <b-container>
     <section class="intro text-center text-md-left">
       <h1 class="section_title title">
-        Hi, I m <strong>Nicolas Vastrade</strong>
+        Hi, I'm <strong>Nicolas Vastrade</strong>
       </h1>
       <p class="section_subtitle subtitle">
         Front-end Dev
       </p>
+
+      <div
+        class="social align-items-center justify-content-center justify-content-md-end d-flex"
+      >
+        <a
+          target="_blank"
+          class="social_item icon"
+          href="https://www.linkedin.com/in/nicolas-vastrade"
+        >
+          <font-awesome-icon :icon="['fab', 'linkedin']" />
+        </a>
+        <a
+          target="_blank"
+          class="social_item icon"
+          href="https://github.com/nicolius13"
+        >
+          <font-awesome-icon :icon="['fab', 'github-square']" />
+        </a>
+        <b-button
+          class="social_item cvBtn mr-md-3"
+          href="/CV.pdf"
+          download
+          variant="info"
+          ><font-awesome-icon :icon="['fas', 'download']" /> CV</b-button
+        >
+      </div>
 
       <img
         class="img"
@@ -26,9 +52,12 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+section {
+  padding-bottom: 3rem;
+}
 .title {
   font-weight: $fw-reg;
-  @include font-size(4rem);
+  margin-bottom: 0.5rem;
 
   strong {
     display: block;
@@ -40,13 +69,44 @@ export default {};
   max-width: 100%;
   box-shadow: $bs;
 }
+.cvDownBtn {
+  background: transparent;
+  color: $clr-accent2;
+  border-color: $clr-accent2;
+  transition: all 0.25s ease-in-out;
+
+  &:hover,
+  &:active {
+    background-color: $clr-accent2;
+    border-color: $clr-accent2;
+    color: $clr-light;
+  }
+}
+.social {
+  line-height: 24px;
+
+  .social_item {
+    margin: 1rem 0.8rem;
+  }
+
+  .icon {
+    font-size: 2.5rem;
+  }
+
+  .cvBtn {
+    &:hover {
+      background-color: $clr-accent;
+      border-color: $clr-accent;
+    }
+  }
+}
 
 .seeWork {
   display: block;
   @include font-size(1.75rem);
 
   .arrow {
-    padding-left: 0.5em;
+    padding-left: 0.5rem;
     width: inherit;
     transition: all 0.25s ease-in-out;
   }
@@ -65,10 +125,11 @@ export default {};
     display: grid;
     width: min-content;
     margin: 0 auto;
-    grid-column-gap: 1em;
+    grid-column-gap: 1rem;
     grid-template-areas:
       'img title'
-      'img subtitle';
+      'img subtitle'
+      'img social';
     grid-template-columns: min-content max-content;
 
     .img {

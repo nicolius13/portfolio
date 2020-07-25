@@ -22,6 +22,9 @@ $container-max-widths: (
   xl: 1140px,
 );
 
+$primary: $clr-accent;
+$info: $clr-accent2;
+
 // IMPORT BOOTSTRAP
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/bootstrap-vue/src/index.scss';
@@ -45,7 +48,7 @@ body {
 }
 
 section {
-  padding: 5em 0;
+  padding: 4rem 0;
   width: 100%;
 }
 
@@ -70,7 +73,7 @@ h2 {
   @include font-size(2.25rem);
 }
 h3 {
-  @include font-size(1.25rem);
+  @include font-size(1.5rem);
 }
 
 h1,
@@ -81,20 +84,21 @@ h3 {
 }
 
 .section_title {
-  margin-bottom: 0.25em;
+  font-weight: $fw-bold;
+  @include font-size(4rem);
+  margin-bottom: 2rem;
 }
 
 .section_subtitle {
   margin: 0;
-  @include font-size(1.25rem);
 }
 
 .subtitle {
   background: $clr-accent;
   font-family: $ff-secondary;
   @include font-size(1.75rem);
-  padding: 0.25em 1em;
-  margin-bottom: 1em;
+  padding: 0.25rem 1rem;
+  margin-bottom: 1rem;
 }
 @media (min-width: 768px) {
   .subtitle {
@@ -102,7 +106,7 @@ h3 {
     grid-column: -1 / 1;
     grid-row: 2;
     position: relative;
-    left: -1.5em;
-    width: calc(100% + 1.5em);
+    left: -2rem;
+    width: calc(100% + 2rem);
   }
 }

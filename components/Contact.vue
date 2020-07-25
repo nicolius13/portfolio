@@ -163,9 +163,6 @@ export default {
 <style lang="scss" scoped>
 .section_title {
   color: $clr-accent;
-  font-weight: $fw-bold;
-  @include font-size(4rem);
-  margin-bottom: 2rem;
 }
 
 .submitBtn {
