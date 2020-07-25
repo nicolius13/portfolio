@@ -7,10 +7,10 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
+    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate && nuxt export",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate && nuxt export",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
@@ -45,6 +45,7 @@
     "node-sass": "^4.14.1",
     "nodemon": "^1.18.9",
     "prettier": "^1.16.4",
+    "push-dir": "^0.4.1",
     "sass-loader": "^9.0.2"
   }
 }
