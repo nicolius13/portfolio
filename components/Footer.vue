@@ -6,7 +6,7 @@
       </li>
       <li class="social-list_item">
         <a
-          target="blank"
+          target="_blank"
           class="social-list_link icon"
           href="https://github.com/nicolius13"
         >
@@ -15,7 +15,7 @@
       </li>
       <li class="social-list_item">
         <a
-          target="blank"
+          target="_blank"
           class="social-list_link icon"
           href="https://www.linkedin.com/in/nicolas-vastrade"
         >
@@ -24,7 +24,7 @@
       </li>
       <li class="social-list_item">
         <p>Design idea:</p>
-        <a target="blank" class="social-list_link" href="http://html5up.net"
+        <a target="_blank" class="social-list_link" href="http://html5up.net"
           >HTML5 UP</a
         >
       </li>

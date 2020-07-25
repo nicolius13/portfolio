@@ -26,7 +26,7 @@
             v-b-popover.hover.top="'About Me'"
           />
         </template>
-        <About />
+        <About @seeWork="tabIndex = 1" />
       </b-tab>
       <b-tab>
         <template v-slot:title>
