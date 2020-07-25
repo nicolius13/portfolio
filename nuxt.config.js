@@ -1,5 +1,17 @@
 import pkg from './package';
 
+// Router base
+const routerBase = '/portfolio';
+// only add `router.base = '/portfolio/'` if `DEPLOY_ENV` is `GH_PAGES`
+const addRouterBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: routerBase,
+        },
+      }
+    : {};
+
 export default {
   mode: 'universal',
 
@@ -31,6 +43,12 @@ export default {
    ** Global CSS
    */
   css: ['@/assets/scss/main.scss'],
+
+  /*
+   ** Router
+   */
+
+  ...addRouterBase,
 
   /*
    ** Plugins to load before mounting the App
