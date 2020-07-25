@@ -2,7 +2,9 @@
   <b-container>
     <section class="about-me text-center text-md-left">
       <h2 class="section_title section_about">Who I am</h2>
-      <p class="section_subtitle subtitle">Front-end developer based in Laos</p>
+      <p class="section_subtitle subtitle">
+        Belgian Front-end developer based in Laos
+      </p>
 
       <div class="about-me_body">
         <p>
@@ -53,8 +55,6 @@ export default {
 
 <style lang="scss" scoped>
 .section_title {
-  font-weight: $fw-bold;
-  @include font-size(4rem);
   margin-bottom: 0.5rem;
 }
 
@@ -64,7 +64,7 @@ export default {
     margin: 0 auto;
 
     .subtitle {
-      padding-left: 1.5em;
+      padding-left: 2rem;
     }
 
     .techLogos {
