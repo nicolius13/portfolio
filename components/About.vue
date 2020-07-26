@@ -19,7 +19,11 @@
           then followed the ‘Front-end Developer’ Certified Training on
           OpenClassroom. I'm now looking for new projects!
         </p>
-        <a class="mb-3 d-block" href="/CV.pdf" download
+        <a
+          class="mb-3 d-block"
+          href="https://nicolius13.github.io/portfolio/CV.pdf"
+          target="_blank"
+          download
           ><font-awesome-icon :icon="['fas', 'download']" /> My Resume</a
         >
         <p>
