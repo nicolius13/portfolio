@@ -27,7 +27,7 @@
         >
           <b-form-input
             id="mail"
-            v-model="formData.mail"
+            v-model="formData.email"
             name="email"
             type="email"
             required
@@ -71,7 +71,7 @@ export default {
     return {
       formData: {
         name: '',
-        mail: '',
+        email: '',
         message: '',
         formDataNameOrder: '',
         formGoogleSheetName: '',
@@ -130,12 +130,12 @@ export default {
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          // displayd tank you msg
+          // displayd tank you
           this.formSended = true;
           // reset the form
           this.formData.message = '';
           this.formData.name = '';
-          this.formData.mail = '';
+          this.formData.email = '';
         }
       };
       // url encode form data for sending as post data
