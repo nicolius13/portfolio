@@ -21,7 +21,7 @@
         </p>
         <a
           class="mb-3 d-block"
-          href="https://nicolius13.github.io/portfolio/CV.pdf"
+          href="https://nicolius13.github.io/portfolio/CV_EN.pdf"
           target="_blank"
           download
           ><font-awesome-icon :icon="['fas', 'download']" /> My Resume</a

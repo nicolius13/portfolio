@@ -45,7 +45,7 @@ export default {
           imgSrc: require('~/assets/img/work/bambous.jpg'),
           imgAlt: 'bambous.be website',
           description:
-            'Redesign and switching of bambous.be web site to WordPress',
+            'Redesign and switch to WordPress the bambous.be web site',
           liveLink: 'https://bambous.be/',
         },
         // Projet Dungeon

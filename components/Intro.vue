@@ -27,7 +27,7 @@
         </a>
         <b-button
           class="social_item cvBtn mr-md-3"
-          href="https://nicolius13.github.io/portfolio/CV.pdf"
+          href="https://nicolius13.github.io/portfolio/CV_EN.pdf"
           target="_blank"
           download
           variant="info"
