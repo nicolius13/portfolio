@@ -42,8 +42,11 @@
       />
     </section>
     <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
-      Come and see what I can do
-      <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
+      Come and see
+      <div class="d-bloc d-md-inline">
+        what I can do
+        <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
+      </div>
     </a>
   </b-container>
 </template>
