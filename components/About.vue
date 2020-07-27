@@ -85,12 +85,17 @@ export default {
         { id: 8, name: 'Nuxt', img: require('~/assets/img/logos/nuxt.png') },
         {
           id: 9,
+          name: 'Bootstrap Vue',
+          img: require('~/assets/img/logos/bootstrapVue.png'),
+        },
+        {
+          id: 10,
           name: 'WordPress',
           img: require('~/assets/img/logos/wordpress.png'),
         },
-        { id: 10, name: 'Git', img: require('~/assets/img/logos/git.png') },
+        { id: 11, name: 'Git', img: require('~/assets/img/logos/git.png') },
         {
-          id: 11,
+          id: 12,
           name: 'GitHub',
           img: require('~/assets/img/logos/github.png'),
         },
