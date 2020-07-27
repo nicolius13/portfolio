@@ -108,16 +108,9 @@ section {
 
   .arrow {
     padding-left: 0.5rem;
-    width: inherit;
-    transition: all 0.25s ease-in-out;
   }
-
   &:hover {
     text-decoration: none;
-  }
-
-  &:hover .arrow {
-    transform: translateX(0.5em);
   }
 }
 

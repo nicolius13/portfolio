@@ -110,3 +110,29 @@ h3 {
     width: calc(100% + 2rem);
   }
 }
+
+// SeeWOrk links
+
+@keyframes arrowBounce {
+  from {
+    transform: translateX(0em);
+  }
+
+  to {
+    transform: translateX(0.5em);
+  }
+}
+
+.seeWork {
+  .arrow {
+    width: inherit;
+  }
+
+  &:hover .arrow {
+    animation-duration: 0.4s;
+    animation-name: arrowBounce;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+  }
+}

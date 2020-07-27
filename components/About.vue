@@ -112,6 +112,13 @@ export default {
   }
 }
 
+.seeWork {
+  .arrow {
+    padding-left: 0.3rem;
+    vertical-align: -0.125em;
+  }
+}
+
 @media (min-width: 768px) {
   .about-me {
     max-width: 740px;
