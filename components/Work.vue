@@ -1,7 +1,14 @@
 <template>
   <b-container>
-    <section class="my-work">
+    <section class="my-work text-center text-md-left">
       <h2 class="section_title">My work</h2>
+      <b-row>
+        <b-col>
+          <p class="section_subtitle subtitle">
+            I make fast and dynamic web applications
+          </p>
+        </b-col>
+      </b-row>
       <b-row>
         <ProjectCard
           v-for="project in projects"
@@ -100,6 +107,14 @@ export default {
 
 <style lang="scss" scoped>
 .section_title {
-  color: $clr-accent;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .my-work {
+    .subtitle {
+      padding-left: 2rem;
+    }
+  }
 }
 </style>

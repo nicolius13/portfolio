@@ -126,9 +126,6 @@ export default {
 
 @media (min-width: 768px) {
   .about-me {
-    max-width: 740px;
-    margin: 0 auto;
-
     .subtitle {
       padding-left: 2rem;
     }

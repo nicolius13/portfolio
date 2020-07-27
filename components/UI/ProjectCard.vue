@@ -1,5 +1,5 @@
 <template>
-  <b-col class="d-flex align-items-stretch" md="6" lg="4">
+  <b-col class="d-flex align-items-stretch" md="6">
     <b-card
       :img-src="project.imgSrc"
       :img-alt="project.imgAlt"
