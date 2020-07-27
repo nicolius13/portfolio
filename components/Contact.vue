@@ -3,6 +3,7 @@
     <section class="contact">
       <h2 class="section_title">Contact me</h2>
       <b-form
+        v-if="!formSended"
         @submit="handleFormSubmit"
         class="gform"
         action="https://script.google.com/macros/s/AKfycbyn46ncUzOIkgxU5YYbSU8PCZh9v4klQklzcX9Q/exec"
@@ -11,7 +12,7 @@
         <b-form-group id="nameInput" label="Your Name:" label-for="name">
           <b-form-input
             id="name"
-            v-model="name"
+            v-model="formData.name"
             name="name"
             required
             placeholder="Enter name"
@@ -26,7 +27,7 @@
         >
           <b-form-input
             id="mail"
-            v-model="mail"
+            v-model="formData.mail"
             name="email"
             type="email"
             required
@@ -40,7 +41,7 @@
         >
           <b-form-textarea
             id="textarea"
-            v-model="message"
+            v-model="formData.message"
             name="message"
             required
             placeholder="Enter something..."
@@ -52,9 +53,12 @@
           >Submit</b-button
         >
       </b-form>
-      <div class="thankyou_message" style="display:none;">
+      <div v-else>
         <h2>
-          <em>Thanks</em> for contacting us! We will get back to you soon!
+          Thank You!
+        </h2>
+        <h2>
+          I will get back to you soon!
         </h2>
       </div>
     </section>
@@ -65,9 +69,14 @@
 export default {
   data() {
     return {
-      message: '',
-      name: '',
-      mail: '',
+      formData: {
+        name: '',
+        mail: '',
+        message: '',
+        formDataNameOrder: '',
+        formGoogleSheetName: '',
+        formGoogleSendEmail: '',
+      },
       formSended: false,
     };
   },
@@ -76,12 +85,12 @@ export default {
     // get all data in form and return object
     getFormData(form) {
       const elements = form.elements;
-      let honeypot;
+      // let honeypot;
 
       const fields = Object.keys(elements)
         .filter(function(k) {
           if (elements[k].name === 'honeypot') {
-            honeypot = elements[k].value;
+            // honeypot = elements[k].value;
             return false;
           }
           return true;
@@ -98,54 +107,35 @@ export default {
           return self.indexOf(item) === pos && item;
         });
 
-      const formData = {};
-      fields.forEach(function(name) {
-        const element = elements[name];
-
-        // singular form elements just have one value
-        formData[name] = element.value;
-
-        // when our element has multiple items, get their values
-        if (element.length) {
-          const data = [];
-          for (let i = 0; i < element.length; i++) {
-            const item = element.item(i);
-            if (item.checked || item.selected) {
-              data.push(item.value);
-            }
-          }
-          formData[name] = data.join(', ');
-        }
-      });
-
       // add form-specific values into the data
-      formData.formDataNameOrder = JSON.stringify(fields);
-      formData.formGoogleSheetName = form.dataset.sheet || 'responses'; // default sheet name
-      formData.formGoogleSendEmail = form.dataset.email || ''; // no email by default
-
-      return { data: formData, honeypot: honeypot };
+      this.formData.formDataNameOrder = JSON.stringify(fields);
+      this.formData.formGoogleSheetName = form.dataset.sheet || 'responses'; // default sheet name
+      this.formData.formGoogleSendEmail = form.dataset.email || ''; // no email by default
     },
     handleFormSubmit(event) {
-      // handles form submit without any jquery
+      // handles form submit
       event.preventDefault(); // we are submitting via xhr below
       const form = event.target;
-      const formData = this.getFormData(form);
-      const data = formData.data;
+      this.getFormData(form);
+      const data = this.formData;
 
       // If a honeypot field is filled, assume it was done so by a spam bot.
-      if (formData.honeypot) {
+      if (data.honeypot) {
         return false;
       }
 
       const url = form.action;
       const xhr = new XMLHttpRequest();
       xhr.open('POST', url);
-      // xhr.withCredentials = true;
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onreadystatechange = function() {
+      xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          form.reset();
+          // displayd tank you msg
           this.formSended = true;
+          // reset the form
+          this.formData.message = '';
+          this.formData.name = '';
+          this.formData.mail = '';
         }
       };
       // url encode form data for sending as post data
