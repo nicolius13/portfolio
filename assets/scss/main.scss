@@ -48,7 +48,6 @@ body {
 }
 
 section {
-  padding: 4rem 0;
   width: 100%;
   max-width: 740px;
   margin: 0 auto;
@@ -97,7 +96,7 @@ h3 {
   font-family: $ff-secondary;
   @include font-size(1.75rem);
   padding: 0.25rem 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 @media (min-width: 768px) {
   .subtitle {
@@ -107,6 +106,9 @@ h3 {
     position: relative;
     left: -2rem;
     width: calc(100% + 2rem);
+  }
+  section {
+    padding: 3rem 0;
   }
 }
 

@@ -7,7 +7,13 @@
       <p class="section_subtitle subtitle">
         Front-end Dev
       </p>
-
+      <!-- IMG -->
+      <img
+        class="img"
+        src="../assets/img/portrait.JPG"
+        alt="A photo of me :)"
+      />
+      <!-- Social Links -->
       <div
         class="social align-items-center justify-content-center justify-content-md-end d-flex"
       >
@@ -34,12 +40,6 @@
           ><font-awesome-icon :icon="['fas', 'download']" /> CV</b-button
         >
       </div>
-
-      <img
-        class="img"
-        src="../assets/img/portrait.JPG"
-        alt="A photo of me :)"
-      />
     </section>
     <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
       Come and see
@@ -56,9 +56,6 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-section {
-  padding-bottom: 3rem;
-}
 .title {
   font-weight: $fw-reg;
   margin-bottom: 0.5rem;
@@ -90,7 +87,7 @@ section {
   line-height: 24px;
 
   .social_item {
-    margin: 1rem 0.8rem;
+    margin: 2rem 0.8rem;
   }
 
   .icon {
@@ -121,6 +118,7 @@ section {
   .intro {
     display: grid;
     width: min-content;
+    padding-bottom: 3rem;
     margin: 0 auto;
     grid-column-gap: 1rem;
     grid-template-areas:
@@ -138,6 +136,13 @@ section {
 
     .subtitle {
       text-align: right;
+      margin-bottom: 1.3rem;
+    }
+  }
+
+  .social {
+    .social_item {
+      margin: 0rem 0.8rem;
     }
   }
   .seeWork {
