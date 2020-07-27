@@ -12,11 +12,11 @@
           Vue.Js/Nuxt.js.
         </p>
         <p>
-          I used to work as a lab technologist in the pharmaceutical
-          industry.When I moved to Senegal I took this opportunity to make a
-          career change. I've always been passionate about IT and the web world
-          and therefore decided to self-train in web development at first. I
-          then followed the ‘Front-end Developer’ Certified Training on
+          I used to work as a lab technologist in the pharmaceutical industry.
+          When I moved to Senegal I took this opportunity to make a career
+          change. I've always been passionate about IT and the web world and
+          therefore decided to self-train in web development at first. I then
+          followed the ‘Front-end Developer’ Certified Training on
           OpenClassroom. I'm now looking for new projects!
         </p>
         <a

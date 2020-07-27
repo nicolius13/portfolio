@@ -15,11 +15,11 @@
       </b-card-text>
 
       <template v-slot:footer>
-        <a v-if="project.liveLink" :href="project.liveLink" target="blank">
+        <a v-if="project.liveLink" :href="project.liveLink" target="_blank">
           <font-awesome-icon :icon="['fas', 'eye']" />
           See Live
         </a>
-        <a v-if="project.codeLink" :href="project.codeLink" target="blank">
+        <a v-if="project.codeLink" :href="project.codeLink" target="_blank">
           <font-awesome-icon :icon="['fab', 'github']" />
           Code
         </a>
