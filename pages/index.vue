@@ -1,6 +1,7 @@
 <template>
   <b-container class="content">
     <b-tabs v-model="tabIndex" content-class="mt-3" align="center">
+      <!-- INTRO Tab -->
       <b-tab active>
         <template v-slot:title>
           <font-awesome-icon
@@ -10,7 +11,8 @@
         </template>
         <Intro @seeWork="tabIndex = 1" />
       </b-tab>
-      <b-tab>
+      <!-- WORK Tab -->
+      <b-tab lazy>
         <template v-slot:title>
           <font-awesome-icon
             :icon="['fas', 'folder']"
@@ -19,7 +21,8 @@
         </template>
         <Work />
       </b-tab>
-      <b-tab>
+      <!-- ABOUT Me Tab -->
+      <b-tab lazy>
         <template v-slot:title>
           <font-awesome-icon
             :icon="['fas', 'address-card']"
@@ -28,7 +31,8 @@
         </template>
         <About @seeWork="tabIndex = 1" />
       </b-tab>
-      <b-tab>
+      <!-- CONTACT Tab -->
+      <b-tab lazy>
         <template v-slot:title>
           <font-awesome-icon
             :icon="['fas', 'envelope']"
