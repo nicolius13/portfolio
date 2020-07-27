@@ -21,7 +21,7 @@
         </p>
         <a
           class="mb-3 d-block"
-          href="https://nicolius13.github.io/portfolio/CV_EN.pdf"
+          href="https://nicolas-vastrade.tk/CV_EN.pdf"
           target="_blank"
           download
           ><font-awesome-icon :icon="['fas', 'download']" /> My Resume</a
@@ -113,7 +113,7 @@ export default {
 .about-me_body {
   p,
   a {
-    @include font-size(1.25rem);
+    font-size: 1rem;
   }
 }
 
@@ -132,6 +132,12 @@ export default {
 
     .techLogos {
       flex: 0 0 11%;
+    }
+  }
+  .about-me_body {
+    p,
+    a {
+      font-size: 1.25rem;
     }
   }
 }
