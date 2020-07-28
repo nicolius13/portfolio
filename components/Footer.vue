@@ -23,17 +23,30 @@
         </a>
       </li>
       <li class="social-list_item">
-        <p>Design idea:</p>
+        <p>{{ $t('design') }}</p>
         <a target="_blank" class="social-list_link" href="http://html5up.net"
           >HTML5 UP</a
         >
+      </li>
+      <li class="social-list_item">
+        <a @click="switchLang" href="javascript:;">{{ $t('language') }}</a>
       </li>
     </ul>
   </footer>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    switchLang() {
+      if (this.$i18n.locale === 'en') {
+        this.$i18n.setLocale('fr');
+      } else {
+        this.$i18n.setLocale('en');
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -76,6 +76,33 @@ export default {
         ],
       },
     ],
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          {
+            name: 'English',
+            code: 'en',
+            file: 'en-US.js',
+          },
+          {
+            name: 'Français',
+            code: 'fr',
+            file: 'fr-FR.js',
+          },
+        ],
+        defaultLocale: 'en',
+        strategy: 'no_prefix',
+        lazy: true,
+        langDir: 'lang/',
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieKey: 'i18n_redirected',
+          alwaysRedirect: false,
+          fallbackLocale: 'en',
+        },
+      },
+    ],
   ],
 
   bootstrapVue: {

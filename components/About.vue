@@ -1,40 +1,35 @@
 <template>
   <b-container>
     <section class="about-me text-center text-md-left">
-      <h2 class="section_title section_about">Who I am</h2>
+      <h2 class="section_title section_about">{{ $t('who') }}</h2>
       <p class="section_subtitle subtitle">
-        Belgian Front-end developer based in Laos
+        {{ $t('belgian') }}
       </p>
 
       <div class="about-me_body">
         <p>
-          Hello, I'm Nicolas Vastrade, I'm a Freelance Developer specialized in
-          Vue.Js/Nuxt.js.
+          {{ $t('present1') }}
         </p>
         <p>
-          I used to work as a lab technologist in the pharmaceutical industry.
-          When I moved to Senegal I took this opportunity to make a career
-          change. I've always been passionate about IT and the web world and
-          therefore decided to self-train in web development at first. I then
-          followed the ‘Front-end Developer’ Certified Training on
-          OpenClassroom. I'm now looking for new projects!
+          {{ $t('present2') }}
         </p>
         <a
+          :href="$i18n.locale == 'en' ? linkCV.en : linkCV.fr"
           class="mb-3 d-block"
-          href="https://nicolas-vastrade.tk/CV_EN.pdf"
           target="_blank"
           download
-          ><font-awesome-icon :icon="['fas', 'download']" /> My Resume</a
+          ><font-awesome-icon :icon="['fas', 'download']" />
+          {{ $t('resume') }}</a
         >
         <p>
-          Come check out what I’ve
+          {{ $t('check') }}
           <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
-            already developed
+            {{ $t('developed') }}
             <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
           </a>
         </p>
 
-        <h3 class="mb-3">Technologies that I use:</h3>
+        <h3 class="mb-3">{{ $t('technos') }}</h3>
         <b-row align-v="center" align-h="center">
           <b-col
             :id="`popover-${logo.id}-${logo.name}`"
@@ -62,6 +57,10 @@
 export default {
   data() {
     return {
+      linkCV: {
+        en: 'https://nicolas-vastrade.tk/CV_EN.pdf',
+        fr: 'https://nicolas-vastrade.tk/CV_FR.pdf',
+      },
       logos: [
         { id: 1, name: 'HTML', img: require('~/assets/img/logos/html.png') },
         { id: 2, name: 'CSS', img: require('~/assets/img/logos/css.png') },

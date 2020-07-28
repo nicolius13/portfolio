@@ -8,10 +8,12 @@
       img-top
     >
       <b-card-title class="card_title">
-        {{ project.title }}
+        {{ title }}
       </b-card-title>
       <b-card-text>
-        {{ project.description }}
+        {{
+          $i18n.locale == 'en' ? project.description_en : project.description_fr
+        }}
       </b-card-text>
 
       <template v-slot:footer>
@@ -36,6 +38,15 @@ export default {
       default: () => {
         return {};
       },
+    },
+  },
+  computed: {
+    title() {
+      if (this.project.title_fr && this.$i18n.locale === 'fr') {
+        return this.project.title_fr;
+      } else {
+        return this.project.title;
+      }
     },
   },
 };

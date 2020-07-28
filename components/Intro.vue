@@ -2,7 +2,7 @@
   <b-container>
     <section class="intro text-center text-md-left">
       <h1 class="section_title title">
-        Hi, I'm <strong>Nicolas Vastrade</strong>
+        {{ $t('hello') }} <strong>Nicolas Vastrade</strong>
       </h1>
       <p class="section_subtitle subtitle">
         Front-end Dev
@@ -32,8 +32,8 @@
           <font-awesome-icon :icon="['fab', 'github-square']" />
         </a>
         <b-button
+          :href="$i18n.locale == 'en' ? linkCV.en : linkCV.fr"
           class="social_item cvBtn mr-md-3"
-          href="https://nicolas-vastrade.tk/CV_EN.pdf"
           target="_blank"
           download
           variant="info"
@@ -42,9 +42,9 @@
       </div>
     </section>
     <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
-      Come and see
+      {{ $t('come') }}
       <div class="d-bloc d-md-inline">
-        what I can do
+        {{ $t('canDo') }}
         <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
       </div>
     </a>
@@ -52,7 +52,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      linkCV: {
+        en: 'https://nicolas-vastrade.tk/CV_EN.pdf',
+        fr: 'https://nicolas-vastrade.tk/CV_FR.pdf',
+      },
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
