@@ -7,6 +7,7 @@ export default {
   // WORK page
   work: 'My work',
   make: 'I make fast and dynamic web applications',
+  see: 'See Live',
 
   // ABOUT page
   who: 'Who I am',
