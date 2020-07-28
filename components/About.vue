@@ -15,7 +15,7 @@
         </p>
         <a
           :href="$i18n.locale == 'en' ? linkCV.en : linkCV.fr"
-          class="mb-3 d-block"
+          class="mb-3 d-inline-block"
           target="_blank"
           download
           ><font-awesome-icon :icon="['fas', 'download']" />

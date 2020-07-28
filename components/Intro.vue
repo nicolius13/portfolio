@@ -41,13 +41,15 @@
         >
       </div>
     </section>
-    <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
-      {{ $t('come') }}
-      <div class="d-bloc d-md-inline">
-        {{ $t('canDo') }}
-        <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
-      </div>
-    </a>
+    <div class="text-center text-md-right">
+      <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
+        {{ $t('come') }}
+        <div class="d-bloc d-md-inline text-center">
+          {{ $t('canDo') }}
+          <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
+        </div>
+      </a>
+    </div>
   </b-container>
 </template>
 
@@ -112,7 +114,6 @@ export default {
 }
 
 .seeWork {
-  display: block;
   @include font-size(1.75rem);
 
   .arrow {
