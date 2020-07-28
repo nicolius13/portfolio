@@ -76,6 +76,25 @@ export default {
         ],
       },
     ],
+    'nuxt-i18n',
+    {
+      locales: [
+        {
+          name: 'English',
+          code: 'en',
+          iso: 'en',
+          file: 'en.js',
+        },
+        {
+          name: 'Français',
+          code: 'fr',
+          iso: 'fr',
+          file: 'fr.js',
+        },
+      ],
+      langDir: 'lang/',
+      defaultLocale: 'en',
+    },
   ],
 
   bootstrapVue: {
