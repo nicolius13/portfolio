@@ -32,4 +32,8 @@ export default {
   submitBtn: 'Submit',
   thx: 'Thank You!',
   getBack: 'I will get back to you soon!',
+
+  // FOOTER
+  design: 'Design idea:',
+  language: 'Passer en',
 };

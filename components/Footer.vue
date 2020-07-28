@@ -23,17 +23,32 @@
         </a>
       </li>
       <li class="social-list_item">
-        <p>Design idea:</p>
+        <p>{{ $t('design') }}</p>
         <a target="_blank" class="social-list_link" href="http://html5up.net"
           >HTML5 UP</a
         >
+      </li>
+      <li class="social-list_item">
+        <nuxt-link
+          v-for="locale in availableLocales"
+          :key="locale.code"
+          :to="switchLocalePath(locale.code)"
+        >
+          {{ $t('language') }} {{ locale.name }}
+        </nuxt-link>
       </li>
     </ul>
   </footer>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

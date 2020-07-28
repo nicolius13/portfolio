@@ -81,10 +81,12 @@ export default {
       {
         locales: [
           {
+            name: 'English',
             code: 'en',
             file: 'en-US.js',
           },
           {
+            name: 'Français',
             code: 'fr',
             file: 'fr-FR.js',
           },
