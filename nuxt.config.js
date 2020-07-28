@@ -92,6 +92,7 @@ export default {
           },
         ],
         defaultLocale: 'en',
+        strategy: 'no_prefix',
         lazy: true,
         langDir: 'lang/',
         detectBrowserLanguage: {

@@ -35,5 +35,5 @@ export default {
 
   // FOOTER
   design: 'Idée du design:',
-  language: 'Switch to',
+  language: 'Switch to English',
 };

@@ -29,13 +29,7 @@
         >
       </li>
       <li class="social-list_item">
-        <nuxt-link
-          v-for="locale in availableLocales"
-          :key="locale.code"
-          :to="switchLocalePath(locale.code)"
-        >
-          {{ $t('language') }} {{ locale.name }}
-        </nuxt-link>
+        <a @click="switchLang" href="javascript:;">{{ $t('language') }}</a>
       </li>
     </ul>
   </footer>
@@ -43,9 +37,13 @@
 
 <script>
 export default {
-  computed: {
-    availableLocales() {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+  methods: {
+    switchLang() {
+      if (this.$i18n.locale === 'en') {
+        this.$i18n.setLocale('fr');
+      } else {
+        this.$i18n.setLocale('en');
+      }
     },
   },
 };
