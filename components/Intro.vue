@@ -4,7 +4,10 @@
       <b-col class="d-flex flex-column">
         <div class="mt-auto">
           <b-row>
-            <b-col cols="12">
+            <b-col
+              class="d-flex align-items-center justify-content-center justify-content-md-start"
+              cols="12"
+            >
               <h1 class="section_title title typerHello"></h1>
             </b-col>
           </b-row>
@@ -13,9 +16,7 @@
               class="d-flex align-items-center justify-content-center justify-content-md-start"
               cols="12"
             >
-              <h1
-                class="section_title title d-inline-block font-weight-bold typerName"
-              ></h1>
+              <h1 class="section_title title font-weight-bold typerName"></h1>
             </b-col>
           </b-row>
           <b-row>
@@ -77,7 +78,6 @@ export default {
   data() {
     return {
       subWidth: 0,
-      typerOptions: {},
       typerHello: null,
       typerName: null,
     };
@@ -130,7 +130,9 @@ export default {
         options = {
           strings: [this.$t('hello')],
           typeSpeed: 30,
-          showCursor: false,
+          onComplete: self => {
+            self.cursor.remove();
+          },
         };
       } else {
         // delay depend of languages (lenght of the string)
@@ -160,8 +162,8 @@ export default {
 .title {
   font-weight: $fw-reg;
   margin-bottom: 0.5rem;
-  @include rfs(3rem, height);
   @include font-size(3rem);
+  @include rfs(62px, height);
 }
 
 .img {
@@ -200,7 +202,7 @@ export default {
 
     .title {
       @include font-size(4rem);
-      @include rfs(4rem, height);
+      @include rfs(72px, height);
     }
 
     .subtitle {

@@ -103,9 +103,9 @@ h3 {
 // TYPED Texts
 
 .typed-cursor {
-  font-weight: $fw-bold;
-  margin-bottom: 0.5rem;
+  display: inline-block;
   @include font-size(3rem);
+  margin-top: -15px;
 }
 
 // SeeWOrk links
