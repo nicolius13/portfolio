@@ -77,12 +77,6 @@ export default {
   border: none;
 }
 
-.tab-content {
-  padding: 2em;
-  background: $clr-light;
-  border-radius: 5px;
-}
-
 .nav-tabs .nav-link {
   position: relative;
   display: inline-block;

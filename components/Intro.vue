@@ -1,47 +1,52 @@
 <template>
-  <b-container>
-    <section class="intro text-center text-md-left">
-      <h1 class="section_title title">
-        {{ $t('hello') }} <strong>Nicolas Vastrade</strong>
-      </h1>
-      <p class="section_subtitle subtitle">
-        Front-end Dev
-      </p>
-      <!-- IMG -->
-      <img
-        class="img"
-        src="../assets/img/portrait.JPG"
-        alt="A photo of me :)"
-      />
-      <!-- Social Links -->
-      <div
-        class="social align-items-center justify-content-center justify-content-md-end d-flex"
-      >
-        <a
-          target="_blank"
-          class="social_item icon"
-          href="https://www.linkedin.com/in/nicolas-vastrade"
-        >
-          <font-awesome-icon :icon="['fab', 'linkedin']" />
-        </a>
-        <a
-          target="_blank"
-          class="social_item icon"
-          href="https://github.com/nicolius13"
-        >
-          <font-awesome-icon :icon="['fab', 'github-square']" />
-        </a>
-        <b-button
-          :href="$i18n.locale == 'en' ? linkCV.en : linkCV.fr"
-          class="social_item cvBtn mr-md-3"
-          target="_blank"
-          download
-          variant="info"
-          ><font-awesome-icon :icon="['fas', 'download']" /> CV</b-button
-        >
-      </div>
-    </section>
-    <div class="text-center text-md-right">
+  <b-container ref="container" class="section intro text-center text-md-left">
+    <b-row>
+      <b-col>
+        <b-row>
+          <b-col cols="12">
+            <vue-typed-js
+              :strings="[$t('hello')]"
+              class="d-flex justify-content-center justify-content-md-start"
+            >
+              <h1 class="section_title title typing"></h1>
+            </vue-typed-js>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col cols="12">
+            <vue-typed-js
+              :strings="['Nicolas Vastrade']"
+              class="d-flex justify-content-center justify-content-md-start"
+            >
+              <h1 class="section_title title font-weight-bold typing"></h1>
+            </vue-typed-js>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <p :style="width" class="section_subtitle subtitle">
+              Front-end Developer
+            </p>
+          </b-col>
+        </b-row>
+        <b-row v-if="windowWidth > 758">
+          <SocialLinks />
+        </b-row>
+      </b-col>
+      <!-- img -->
+      <b-col class="d-flex align-items-center" md="4">
+        <b-img
+          fluid
+          class="img"
+          src="../assets/img/portrait.JPG"
+          alt="A photo of me :)"
+        />
+      </b-col>
+      <b-col v-if="windowWidth < 758">
+        <SocialLinks />
+      </b-col>
+    </b-row>
+    <div class="text-center text-md-right mt-5">
       <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
         {{ $t('come') }}
         <div class="d-bloc d-md-inline text-center">
@@ -54,31 +59,61 @@
 </template>
 
 <script>
+import SocialLinks from './UI/SocialLinks';
 export default {
+  components: {
+    SocialLinks,
+  },
   data() {
     return {
-      linkCV: {
-        en: 'https://nicolas-vastrade.tk/CV_EN.pdf',
-        fr: 'https://nicolas-vastrade.tk/CV_FR.pdf',
-      },
+      subWidth: 0,
+      windowWidth: 0,
     };
+  },
+  computed: {
+    width() {
+      if (this.windowWidth > 768) {
+        return { width: this.subWidth + 32 + 'px' };
+      } else {
+        return { width: 'auto' };
+      }
+    },
+  },
+  mounted() {
+    this.subWidth = this.$refs.container.clientWidth;
+    window.addEventListener(
+      'load',
+      () => {
+        this.windowWidth = window.innerWidth;
+        this.calcWidth();
+      },
+      {
+        once: true,
+      }
+    );
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth;
+      this.calcWidth();
+    };
+  },
+  methods: {
+    calcWidth() {
+      this.subWidth = this.$refs.container.clientWidth;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.section {
+  padding-bottom: 0;
+}
 .title {
   font-weight: $fw-reg;
   margin-bottom: 0.5rem;
-
-  strong {
-    display: block;
-  }
 }
 
 .img {
-  display: block;
-  max-width: 100%;
   box-shadow: $bs;
 }
 .cvDownBtn {
@@ -92,24 +127,6 @@ export default {
     background-color: $clr-accent2;
     border-color: $clr-accent2;
     color: $clr-light;
-  }
-}
-.social {
-  line-height: 24px;
-
-  .social_item {
-    margin: 2rem 0.8rem;
-  }
-
-  .icon {
-    font-size: 2.5rem;
-  }
-
-  .cvBtn {
-    &:hover {
-      background-color: $clr-accent;
-      border-color: $clr-accent;
-    }
   }
 }
 
@@ -126,35 +143,17 @@ export default {
 
 @media (min-width: 768px) {
   .intro {
-    display: grid;
-    width: min-content;
-    padding-bottom: 3rem;
-    margin: 0 auto;
-    grid-column-gap: 1rem;
-    grid-template-areas:
-      'img title'
-      'img subtitle'
-      'img social';
-    grid-template-columns: min-content max-content;
-
     .img {
-      grid-area: img;
-      min-width: 250px;
-      position: relative;
-      z-index: 2;
+      z-index: 99;
     }
 
     .subtitle {
-      text-align: right;
+      margin-left: -1rem;
+      margin-right: -1rem;
       margin-bottom: 1.3rem;
     }
   }
 
-  .social {
-    .social_item {
-      margin: 0rem 0.8rem;
-    }
-  }
   .seeWork {
     margin: 0 auto;
     max-width: 740px;
