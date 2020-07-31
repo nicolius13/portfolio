@@ -132,20 +132,16 @@ export default {
           typeSpeed: 30,
           onComplete: self => {
             self.cursor.remove();
+            this.typerName.start();
           },
         };
       } else {
-        // delay depend of languages (lenght of the string)
-        let delay;
-        if (this.$i18n.locale === 'en') {
-          delay = 370;
-        } else {
-          delay = 700;
-        }
         options = {
           strings: ['Nicolas Vastrade'],
           typeSpeed: 30,
-          startDelay: delay,
+          onBegin: self => {
+            self.stop();
+          },
         };
       }
       // Create the typer
