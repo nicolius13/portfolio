@@ -1,27 +1,37 @@
 <template>
   <b-container ref="container" class="section intro text-center text-md-left">
     <b-row>
-      <b-col>
-        <b-row>
-          <b-col cols="12">
-            <h1 class="section_title title typerHello"></h1>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col class="d-flex align-items-center" cols="12">
-            <h1
-              class="section_title title d-inline-block font-weight-bold typerName"
-            ></h1>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col>
-            <p :style="width" class="section_subtitle subtitle">
-              Front-end Developer
-            </p>
-          </b-col>
-        </b-row>
-        <b-row v-if="windowWidth > 768">
+      <b-col class="d-flex flex-column">
+        <div class="mt-auto">
+          <b-row>
+            <b-col cols="12">
+              <h1 class="section_title title typerHello"></h1>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col
+              class="d-flex align-items-center justify-content-center justify-content-md-start"
+              cols="12"
+            >
+              <h1
+                class="section_title title d-inline-block font-weight-bold typerName"
+              ></h1>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col class="d-md-none">
+              <p :style="width" class="section_subtitle subtitle">
+                Front-end Dev
+              </p>
+            </b-col>
+            <b-col class="d-none d-md-block">
+              <p :style="width" class="section_subtitle subtitle">
+                {{ $t('frontEnd') }}
+              </p>
+            </b-col>
+          </b-row>
+        </div>
+        <b-row v-if="windowWidth > 768" class="mt-auto">
           <SocialLinks />
         </b-row>
       </b-col>
@@ -121,6 +131,7 @@ export default {
       if (typer === 'typerHello') {
         options = {
           strings: [this.$t('hello')],
+          typeSpeed: 30,
           showCursor: false,
         };
       } else {
@@ -132,6 +143,7 @@ export default {
         }
         options = {
           strings: ['Nicolas Vastrade'],
+          typeSpeed: 30,
           startDelay: delay,
         };
       }
@@ -149,7 +161,8 @@ export default {
 .title {
   font-weight: $fw-reg;
   margin-bottom: 0.5rem;
-  @include rfs(4rem, height);
+  @include rfs(3rem, height);
+  @include font-size(3rem);
 }
 
 .img {
@@ -184,6 +197,11 @@ export default {
   .intro {
     .img {
       z-index: 99;
+    }
+
+    .title {
+      @include font-size(4rem);
+      @include rfs(4rem, height);
     }
 
     .subtitle {

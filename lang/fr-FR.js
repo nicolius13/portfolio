@@ -2,6 +2,7 @@ export default {
   // INTRO Page
   hello: 'Salut, je suis ',
   come: 'Venez voir',
+  frontEnd: 'Développeur Front-end',
   canDo: 'mon travail',
 
   // Work page
