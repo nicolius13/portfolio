@@ -4,22 +4,14 @@
       <b-col>
         <b-row>
           <b-col cols="12">
-            <vue-typed-js
-              :strings="[$t('hello')]"
-              class="d-flex justify-content-center justify-content-md-start"
-            >
-              <h1 class="section_title title typing"></h1>
-            </vue-typed-js>
+            <h1 class="section_title title typerHello"></h1>
           </b-col>
         </b-row>
         <b-row>
-          <b-col cols="12">
-            <vue-typed-js
-              :strings="['Nicolas Vastrade']"
-              class="d-flex justify-content-center justify-content-md-start"
-            >
-              <h1 class="section_title title font-weight-bold typing"></h1>
-            </vue-typed-js>
+          <b-col class="d-flex align-items-center" cols="12">
+            <h1
+              class="section_title title d-inline-block font-weight-bold typerName"
+            ></h1>
           </b-col>
         </b-row>
         <b-row>
@@ -29,7 +21,7 @@
             </p>
           </b-col>
         </b-row>
-        <b-row v-if="windowWidth > 758">
+        <b-row v-if="windowWidth > 768">
           <SocialLinks />
         </b-row>
       </b-col>
@@ -42,11 +34,11 @@
           alt="A photo of me :)"
         />
       </b-col>
-      <b-col v-if="windowWidth < 758">
+      <b-col v-if="windowWidth < 768">
         <SocialLinks />
       </b-col>
     </b-row>
-    <div class="text-center text-md-right mt-5">
+    <div class="text-center text-md-right mt-2 mt-md-5">
       <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
         {{ $t('come') }}
         <div class="d-bloc d-md-inline text-center">
@@ -59,7 +51,9 @@
 </template>
 
 <script>
+import Typed from 'typed.js';
 import SocialLinks from './UI/SocialLinks';
+
 export default {
   components: {
     SocialLinks,
@@ -68,6 +62,9 @@ export default {
     return {
       subWidth: 0,
       windowWidth: 0,
+      typerOptions: {},
+      typerHello: null,
+      typerName: null,
     };
   },
   computed: {
@@ -79,8 +76,18 @@ export default {
       }
     },
   },
+
+  watch: {
+    '$i18n.locale'(newValue, oldValue) {
+      this.resetTyper('typerHello');
+      this.resetTyper('typerName');
+    },
+  },
+
   mounted() {
+    // calc the container size
     this.subWidth = this.$refs.container.clientWidth;
+    // calc the window size on window load once
     window.addEventListener(
       'load',
       () => {
@@ -91,14 +98,45 @@ export default {
         once: true,
       }
     );
+    // add event listener on window resize
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
       this.calcWidth();
     };
+
+    this.resetTyper('typerHello');
+    this.resetTyper('typerName');
   },
   methods: {
     calcWidth() {
       this.subWidth = this.$refs.container.clientWidth;
+    },
+    resetTyper(typer) {
+      // Destroy if the typer exist
+      if (this[typer]) {
+        this[typer].destroy();
+      }
+      // defined the options depending of the typer
+      let options;
+      if (typer === 'typerHello') {
+        options = {
+          strings: [this.$t('hello')],
+          showCursor: false,
+        };
+      } else {
+        let delay;
+        if (this.$i18n.locale === 'en') {
+          delay = 370;
+        } else {
+          delay = 700;
+        }
+        options = {
+          strings: ['Nicolas Vastrade'],
+          startDelay: delay,
+        };
+      }
+      // Create the typer
+      this[typer] = new Typed(`.${typer}`, options);
     },
   },
 };
@@ -111,6 +149,7 @@ export default {
 .title {
   font-weight: $fw-reg;
   margin-bottom: 0.5rem;
+  @include rfs(4rem, height);
 }
 
 .img {
@@ -152,11 +191,6 @@ export default {
       margin-right: -1rem;
       margin-bottom: 1.3rem;
     }
-  }
-
-  .seeWork {
-    margin: 0 auto;
-    max-width: 740px;
   }
 }
 </style>

@@ -25,7 +25,8 @@
     "nuxt": "^2.4.0",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-i18n": "^6.13.1",
-    "rfs": "^9.0.3"
+    "rfs": "^9.0.3",
+    "vue-typed-js": "^0.1.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

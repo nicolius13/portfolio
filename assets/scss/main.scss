@@ -99,6 +99,14 @@ h3 {
   }
 }
 
+// TYPED Texts
+
+.typed-cursor {
+  font-weight: $fw-bold;
+  margin-bottom: 0.5rem;
+  @include font-size(3rem);
+}
+
 // SeeWOrk links
 
 @keyframes arrowBounce {
