@@ -9,7 +9,7 @@
             v-b-popover.hover.top="'Home'"
           />
         </template>
-        <Intro @seeWork="tabIndex = 1" />
+        <Intro :windowWidth="windowWidth" @seeWork="tabIndex = 1" />
       </b-tab>
       <!-- WORK Tab -->
       <b-tab lazy>
@@ -64,6 +64,24 @@ export default {
   data() {
     return {
       tabIndex: 0,
+      windowWidth: 0,
+    };
+  },
+  mounted() {
+    // calc the window size on window load once
+    window.addEventListener(
+      'load',
+      () => {
+        this.windowWidth = window.innerWidth;
+      },
+      {
+        once: true,
+      }
+    );
+
+    // add event listener on window resize
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth;
     };
   },
 };

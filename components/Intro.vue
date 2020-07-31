@@ -1,5 +1,5 @@
 <template>
-  <b-container ref="container" class="section intro text-center text-md-left">
+  <b-container class="section intro text-center text-md-left">
     <b-row>
       <b-col class="d-flex flex-column">
         <div class="mt-auto">
@@ -68,10 +68,15 @@ export default {
   components: {
     SocialLinks,
   },
+  props: {
+    windowWidth: {
+      type: Number,
+      default: 0,
+    },
+  },
   data() {
     return {
       subWidth: 0,
-      windowWidth: 0,
       typerOptions: {},
       typerHello: null,
       typerName: null,
@@ -88,38 +93,31 @@ export default {
   },
 
   watch: {
-    '$i18n.locale'(newValue, oldValue) {
+    '$i18n.locale'() {
       this.resetTyper('typerHello');
       this.resetTyper('typerName');
+    },
+    windowWidth() {
+      this.calcWidth();
     },
   },
 
   mounted() {
-    // calc the container size
-    this.subWidth = this.$refs.container.clientWidth;
-    // calc the window size on window load once
-    window.addEventListener(
-      'load',
-      () => {
-        this.windowWidth = window.innerWidth;
-        this.calcWidth();
-      },
-      {
-        once: true,
-      }
-    );
-    // add event listener on window resize
-    window.onresize = () => {
-      this.windowWidth = window.innerWidth;
-      this.calcWidth();
-    };
-
+    // create the typers
     this.resetTyper('typerHello');
     this.resetTyper('typerName');
   },
   methods: {
     calcWidth() {
-      this.subWidth = this.$refs.container.clientWidth;
+      // get the tab-content element (available when intro tabis closed)
+      const el = document.getElementsByClassName('tab-content')[0];
+      // get the style of that element
+      const computedStyle = getComputedStyle(el);
+      // calculate the width without padding
+      this.subWidth =
+        el.clientWidth -
+        (parseFloat(computedStyle.paddingLeft) +
+          parseFloat(computedStyle.paddingRight));
     },
     resetTyper(typer) {
       // Destroy if the typer exist
@@ -135,6 +133,7 @@ export default {
           showCursor: false,
         };
       } else {
+        // delay depend of languages (lenght of the string)
         let delay;
         if (this.$i18n.locale === 'en') {
           delay = 370;
