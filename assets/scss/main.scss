@@ -149,6 +149,10 @@ h3 {
     width: calc(100% + 7rem);
     margin-left: -3.5rem;
 
+    &.fade {
+      transition: opacity 0.25s ease-in-out;
+    }
+
     div.position-absolute:nth-child(1) {
       border-radius: 5px;
     }
