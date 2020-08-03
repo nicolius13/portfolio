@@ -8,7 +8,9 @@
       img-top
     >
       <b-card-title class="card_title">
-        {{ title }}
+        <a :href="project.liveLink" target="_blank">
+          {{ title }}
+        </a>
       </b-card-title>
       <b-card-text>
         {{

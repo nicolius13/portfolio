@@ -1,82 +1,176 @@
 <template>
-  <b-container>
-    <section class="intro text-center text-md-left">
-      <h1 class="section_title title">
-        {{ $t('hello') }} <strong>Nicolas Vastrade</strong>
-      </h1>
-      <p class="section_subtitle subtitle">
-        Front-end Dev
-      </p>
-      <!-- IMG -->
-      <img
-        class="img"
-        src="../assets/img/portrait.JPG"
-        alt="A photo of me :)"
-      />
-      <!-- Social Links -->
-      <div
-        class="social align-items-center justify-content-center justify-content-md-end d-flex"
-      >
-        <a
-          target="_blank"
-          class="social_item icon"
-          href="https://www.linkedin.com/in/nicolas-vastrade"
-        >
-          <font-awesome-icon :icon="['fab', 'linkedin']" />
-        </a>
-        <a
-          target="_blank"
-          class="social_item icon"
-          href="https://github.com/nicolius13"
-        >
-          <font-awesome-icon :icon="['fab', 'github-square']" />
-        </a>
-        <b-button
-          :href="$i18n.locale == 'en' ? linkCV.en : linkCV.fr"
-          class="social_item cvBtn mr-md-3"
-          target="_blank"
-          download
-          variant="info"
-          ><font-awesome-icon :icon="['fas', 'download']" /> CV</b-button
-        >
-      </div>
-    </section>
-    <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
-      {{ $t('come') }}
-      <div class="d-bloc d-md-inline">
-        {{ $t('canDo') }}
-        <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
-      </div>
-    </a>
+  <b-container class="section intro text-center text-md-left">
+    <b-row>
+      <b-col class="d-flex flex-column">
+        <div class="mt-auto">
+          <b-row>
+            <!-- Hello -->
+            <b-col
+              class="d-flex align-items-center justify-content-center justify-content-md-start"
+              cols="12"
+            >
+              <h1 class="section_title title typerHello"></h1>
+            </b-col>
+          </b-row>
+          <b-row>
+            <!-- Name -->
+            <b-col
+              class="d-flex align-items-center justify-content-center justify-content-md-start"
+              cols="12"
+            >
+              <h1 class="section_title title font-weight-bold typerName"></h1>
+            </b-col>
+          </b-row>
+          <b-row>
+            <!-- Front-end dev -->
+            <b-col class="d-md-none">
+              <p :style="width" class="section_subtitle subtitle">
+                Front-end Dev
+              </p>
+            </b-col>
+            <b-col class="d-none d-md-block">
+              <p :style="width" class="section_subtitle subtitle">
+                {{ $t('frontEnd') }}
+              </p>
+            </b-col>
+          </b-row>
+        </div>
+        <!-- Social links (when screen width > 768px) -->
+        <b-row v-if="windowWidth > 768" class="mt-auto">
+          <SocialLinks />
+        </b-row>
+      </b-col>
+      <!-- img -->
+      <b-col class="d-flex align-items-center" md="4">
+        <b-img
+          fluid
+          class="img"
+          src="../assets/img/portrait.JPG"
+          alt="A photo of me :)"
+        />
+      </b-col>
+      <!-- social links (when screen width < 768px) -->
+      <b-col v-if="windowWidth < 768">
+        <SocialLinks />
+      </b-col>
+    </b-row>
+    <!-- Call to action SEE MY WORK -->
+    <div class="text-center text-md-right mt-2 mt-md-5">
+      <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
+        {{ $t('come') }}
+        <div class="d-bloc d-md-inline text-center">
+          {{ $t('canDo') }}
+          <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
+        </div>
+      </a>
+    </div>
   </b-container>
 </template>
 
 <script>
+import Typed from 'typed.js';
+import SocialLinks from './UI/SocialLinks';
+
 export default {
+  components: {
+    SocialLinks,
+  },
+  props: {
+    windowWidth: {
+      type: Number,
+      default: 0,
+    },
+  },
   data() {
     return {
-      linkCV: {
-        en: 'https://nicolas-vastrade.tk/CV_EN.pdf',
-        fr: 'https://nicolas-vastrade.tk/CV_FR.pdf',
-      },
+      subWidth: 0,
+      typerHello: null,
+      typerName: null,
     };
+  },
+  computed: {
+    width() {
+      if (this.windowWidth > 768) {
+        return { width: this.subWidth + 32 + 'px' };
+      } else {
+        return { width: 'auto' };
+      }
+    },
+  },
+
+  watch: {
+    // reset the typers on language change
+    '$i18n.locale'() {
+      this.resetTyper('typerHello');
+      this.resetTyper('typerName');
+    },
+    // recalculate the subtitle width on window resize
+    windowWidth() {
+      this.calcWidth();
+    },
+  },
+
+  mounted() {
+    // create the typers
+    this.resetTyper('typerHello');
+    this.resetTyper('typerName');
+  },
+  methods: {
+    calcWidth() {
+      // get the tab-content element (available even when intro tab is closed)
+      const el = document.getElementsByClassName('tab-content')[0];
+      // get the style of that element
+      const computedStyle = getComputedStyle(el);
+      // calculate the width without padding
+      this.subWidth =
+        el.clientWidth -
+        (parseFloat(computedStyle.paddingLeft) +
+          parseFloat(computedStyle.paddingRight));
+    },
+    resetTyper(typer) {
+      // Destroy if the typer exist
+      if (this[typer]) {
+        this[typer].destroy();
+      }
+      // defined the options depending of the typer
+      let options;
+      if (typer === 'typerHello') {
+        options = {
+          strings: [this.$t('hello')],
+          typeSpeed: 30,
+          onComplete: self => {
+            self.cursor.remove();
+            this.typerName.start();
+          },
+        };
+      } else {
+        options = {
+          strings: ['Nicolas Vastrade'],
+          typeSpeed: 30,
+          onBegin: self => {
+            self.stop();
+          },
+        };
+      }
+      // Create the typer
+      this[typer] = new Typed(`.${typer}`, options);
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.section {
+  padding-bottom: 0;
+}
 .title {
   font-weight: $fw-reg;
   margin-bottom: 0.5rem;
-
-  strong {
-    display: block;
-  }
+  @include font-size(3rem);
+  @include rfs(62px, height);
 }
 
 .img {
-  display: block;
-  max-width: 100%;
   box-shadow: $bs;
 }
 .cvDownBtn {
@@ -92,27 +186,8 @@ export default {
     color: $clr-light;
   }
 }
-.social {
-  line-height: 24px;
-
-  .social_item {
-    margin: 2rem 0.8rem;
-  }
-
-  .icon {
-    font-size: 2.5rem;
-  }
-
-  .cvBtn {
-    &:hover {
-      background-color: $clr-accent;
-      border-color: $clr-accent;
-    }
-  }
-}
 
 .seeWork {
-  display: block;
   @include font-size(1.75rem);
 
   .arrow {
@@ -125,38 +200,20 @@ export default {
 
 @media (min-width: 768px) {
   .intro {
-    display: grid;
-    width: min-content;
-    padding-bottom: 3rem;
-    margin: 0 auto;
-    grid-column-gap: 1rem;
-    grid-template-areas:
-      'img title'
-      'img subtitle'
-      'img social';
-    grid-template-columns: min-content max-content;
-
     .img {
-      grid-area: img;
-      min-width: 250px;
-      position: relative;
-      z-index: 2;
+      z-index: 99;
+    }
+
+    .title {
+      @include font-size(4rem);
+      @include rfs(72px, height);
     }
 
     .subtitle {
-      text-align: right;
+      margin-left: -1rem;
+      margin-right: -1rem;
       margin-bottom: 1.3rem;
     }
-  }
-
-  .social {
-    .social_item {
-      margin: 0rem 0.8rem;
-    }
-  }
-  .seeWork {
-    margin: 0 auto;
-    max-width: 740px;
   }
 }
 </style>
