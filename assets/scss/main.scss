@@ -108,6 +108,21 @@ h3 {
   margin-top: -15px;
 }
 
+// OVERLAY
+
+.loadingOver {
+  .b-overlay {
+    height: calc(100% + 4rem);
+    margin-top: -2rem;
+    width: calc(100% + 7rem);
+    margin-left: -3.5rem;
+
+    div.position-absolute:nth-child(1) {
+      border-radius: 5px;
+    }
+  }
+}
+
 // SeeWOrk links
 
 @keyframes arrowBounce {
