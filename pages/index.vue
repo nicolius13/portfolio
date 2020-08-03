@@ -1,47 +1,55 @@
 <template>
   <b-container class="content">
     <b-tabs v-model="tabIndex" content-class="mt-3" align="center">
-      <!-- INTRO Tab -->
-      <b-tab active>
-        <template v-slot:title>
-          <font-awesome-icon
-            :icon="['fas', 'home']"
-            v-b-popover.hover.top="'Home'"
-          />
-        </template>
-        <Intro :windowWidth="windowWidth" @seeWork="tabIndex = 1" />
-      </b-tab>
-      <!-- WORK Tab -->
-      <b-tab lazy>
-        <template v-slot:title>
-          <font-awesome-icon
-            :icon="['fas', 'folder']"
-            v-b-popover.hover.top="'My Work'"
-          />
-        </template>
-        <Work />
-      </b-tab>
-      <!-- ABOUT Me Tab -->
-      <b-tab lazy>
-        <template v-slot:title>
-          <font-awesome-icon
-            :icon="['fas', 'address-card']"
-            v-b-popover.hover.top="'About Me'"
-          />
-        </template>
-        <About @seeWork="tabIndex = 1" />
-      </b-tab>
-      <!-- CONTACT Tab -->
-      <b-tab lazy>
-        <template v-slot:title>
-          <font-awesome-icon
-            :icon="['fas', 'envelope']"
-            v-b-popover.hover.top="'Contact Me'"
-          />
-        </template>
-        <Contact />
-      </b-tab>
+      <b-overlay
+        :show="loading"
+        class="loadingOver"
+        opacity="1"
+        spinner-variant="primary"
+      >
+        <!-- INTRO Tab -->
+        <b-tab active>
+          <template v-slot:title>
+            <font-awesome-icon
+              :icon="['fas', 'home']"
+              v-b-popover.hover.top="'Home'"
+            />
+          </template>
+          <Intro :windowWidth="windowWidth" @seeWork="tabIndex = 1" />
+        </b-tab>
+        <!-- WORK Tab -->
+        <b-tab lazy>
+          <template v-slot:title>
+            <font-awesome-icon
+              :icon="['fas', 'folder']"
+              v-b-popover.hover.top="'My Work'"
+            />
+          </template>
+          <Work />
+        </b-tab>
+        <!-- ABOUT Me Tab -->
+        <b-tab lazy>
+          <template v-slot:title>
+            <font-awesome-icon
+              :icon="['fas', 'address-card']"
+              v-b-popover.hover.top="'About Me'"
+            />
+          </template>
+          <About @seeWork="tabIndex = 1" />
+        </b-tab>
+        <!-- CONTACT Tab -->
+        <b-tab lazy>
+          <template v-slot:title>
+            <font-awesome-icon
+              :icon="['fas', 'envelope']"
+              v-b-popover.hover.top="'Contact Me'"
+            />
+          </template>
+          <Contact />
+        </b-tab>
+      </b-overlay>
     </b-tabs>
+
     <Footer />
   </b-container>
 </template>
@@ -65,9 +73,14 @@ export default {
     return {
       tabIndex: 0,
       windowWidth: 0,
+      loading: true,
     };
   },
   mounted() {
+    // Loading
+    setTimeout(() => {
+      this.loading = false;
+    }, 500);
     // calc the window size on window load once
     window.addEventListener(
       'load',

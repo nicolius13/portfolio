@@ -101,8 +101,8 @@ export default {
   watch: {
     // reset the typers on language change
     '$i18n.locale'() {
-      this.resetTyper('typerHello');
-      this.resetTyper('typerName');
+      this.resetTyper('typerHello', true);
+      this.resetTyper('typerName', true);
     },
     // recalculate the subtitle width on window resize
     windowWidth() {
@@ -127,10 +127,14 @@ export default {
         (parseFloat(computedStyle.paddingLeft) +
           parseFloat(computedStyle.paddingRight));
     },
-    resetTyper(typer) {
+    resetTyper(typer, reset) {
+      //  delay on first load
+      let delay = 800;
       // Destroy if the typer exist
-      if (this[typer]) {
+      if (reset) {
         this[typer].destroy();
+        // no delay when language is changed
+        delay = 0;
       }
       // defined the options depending of the typer
       let options;
@@ -138,6 +142,7 @@ export default {
         options = {
           strings: [this.$t('hello')],
           typeSpeed: 30,
+          startDelay: delay,
           onComplete: self => {
             self.cursor.remove();
             this.typerName.start();
@@ -201,7 +206,7 @@ export default {
 @media (min-width: 768px) {
   .intro {
     .img {
-      z-index: 99;
+      z-index: 9;
     }
 
     .title {
