@@ -81,16 +81,15 @@ export default {
     };
   },
   mounted() {
-    // Loading
-    setTimeout(() => {
-      // this.loading = false;
-    }, 500);
     // calc the window size on window load once
     window.addEventListener(
       'load',
       () => {
+        // get the screen width
         this.windowWidth = window.innerWidth;
+        // Stop the loader
         this.loading = false;
+        // calculate the tab height
         this.updateDimension(true, 'tab-0');
       },
       {
