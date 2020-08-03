@@ -47,7 +47,8 @@
             :placeholder="$t('msgPH')"
             name="message"
             required
-            rows="3"
+            no-resize
+            rows="6"
             max-rows="6"
           ></b-form-textarea>
         </b-form-group>
@@ -155,6 +156,23 @@ export default {
 <style lang="scss" scoped>
 .section_title {
   color: $clr-accent;
+}
+
+#textarea {
+  /* scrollbar firefox 64 */
+  scrollbar-width: thin;
+  scrollbar-color: $clr-accent2 $clr-light;
+  /* scrollbar webkit */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $clr-accent2;
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $clr-light;
+  }
 }
 
 .submitBtn {

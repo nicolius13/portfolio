@@ -8,7 +8,11 @@
         spinner-variant="primary"
       >
         <!-- INTRO Tab -->
-        <b-tab active>
+        <b-tab
+          ref="tab-0"
+          @update:active="updateDimension($event, 'tab-0')"
+          active
+        >
           <template v-slot:title>
             <font-awesome-icon
               :icon="['fas', 'home']"
@@ -18,7 +22,7 @@
           <Intro :windowWidth="windowWidth" @seeWork="tabIndex = 1" />
         </b-tab>
         <!-- WORK Tab -->
-        <b-tab lazy>
+        <b-tab ref="tab-1" @update:active="updateDimension($event, 'tab-1')">
           <template v-slot:title>
             <font-awesome-icon
               :icon="['fas', 'folder']"
@@ -28,7 +32,7 @@
           <Work />
         </b-tab>
         <!-- ABOUT Me Tab -->
-        <b-tab lazy>
+        <b-tab ref="tab-2" @update:active="updateDimension($event, 'tab-2')">
           <template v-slot:title>
             <font-awesome-icon
               :icon="['fas', 'address-card']"
@@ -38,7 +42,7 @@
           <About @seeWork="tabIndex = 1" />
         </b-tab>
         <!-- CONTACT Tab -->
-        <b-tab lazy>
+        <b-tab ref="tab-3" @update:active="updateDimension($event, 'tab-3')">
           <template v-slot:title>
             <font-awesome-icon
               :icon="['fas', 'envelope']"
@@ -86,6 +90,7 @@ export default {
       'load',
       () => {
         this.windowWidth = window.innerWidth;
+        this.updateDimension(true, 'tab-0');
       },
       {
         once: true,
@@ -96,6 +101,20 @@ export default {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
     };
+  },
+  methods: {
+    updateDimension($event, tab) {
+      if ($event === true) {
+        setTimeout(() => {
+          const newTab = this.$refs[tab].$el;
+          const tabContent = document.getElementsByClassName('tab-content')[0];
+          // set max/min height
+          const height = `calc(${newTab.clientHeight}px + 4rem`;
+          tabContent.style.maxHeight = height;
+          tabContent.style.minHeight = height;
+        }, 10);
+      }
+    },
   },
 };
 </script>
