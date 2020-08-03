@@ -37,6 +37,9 @@ $info: $clr-accent2;
 *::after {
   box-sizing: border-box;
   margin: 0;
+  /* scrollbar firefox 64 */
+  scrollbar-width: thin;
+  scrollbar-color: $clr-accent2 $clr-dark;
 }
 
 body {
@@ -45,6 +48,19 @@ body {
   margin: 0;
   font-family: $ff-primary;
   line-height: 1.6;
+  overflow-y: scroll;
+
+  /* scrollbar webkit */
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $clr-accent2;
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $clr-dark;
+  }
 }
 
 a {
@@ -53,12 +69,6 @@ a {
 }
 a:hover {
   color: $clr-accent;
-}
-
-.tab-content {
-  padding: 2rem 1.2rem;
-  background: $clr-light;
-  border-radius: 5px;
 }
 
 /* Typography */
@@ -87,6 +97,31 @@ h3 {
   padding: 0.25rem 1rem;
   margin-bottom: 2rem;
 }
+
+// TABS
+.tab-content {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1.2rem;
+  background: $clr-light;
+  border-radius: 5px;
+  transition: min-height 0.5s ease-in-out, max-height 0.5s ease-in-out;
+
+  .tab-pane {
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .tab-pane:not(.active) {
+      display: block;
+      opacity: 0;
+    }
+  }
+  .fade {
+    transition: opacity 0.5s ease-in-out;
+  }
+}
+
 @media (min-width: 768px) {
   .tab-content {
     padding: 2rem 3.5rem;
@@ -94,9 +129,6 @@ h3 {
   .subtitle {
     margin-left: -2rem;
     width: calc(100% + 2rem);
-  }
-  .section {
-    padding: 3rem 0;
   }
 }
 
@@ -116,6 +148,10 @@ h3 {
     margin-top: -2rem;
     width: calc(100% + 7rem);
     margin-left: -3.5rem;
+
+    &.fade {
+      transition: opacity 0.25s ease-in-out;
+    }
 
     div.position-absolute:nth-child(1) {
       border-radius: 5px;

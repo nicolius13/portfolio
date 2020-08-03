@@ -1,71 +1,70 @@
 <template>
-  <b-container>
-    <section class="contact">
-      <h2 class="section_title">{{ $t('contact') }}</h2>
-      <b-form
-        v-if="!formSended"
-        @submit="handleFormSubmit"
-        class="gform"
-        action="https://script.google.com/macros/s/AKfycbyn46ncUzOIkgxU5YYbSU8PCZh9v4klQklzcX9Q/exec"
-        method="post"
+  <b-container class="contact">
+    <h2 class="section_title">{{ $t('contact') }}</h2>
+    <b-form
+      v-if="!formSended"
+      @submit="handleFormSubmit"
+      class="gform"
+      action="https://script.google.com/macros/s/AKfycbyn46ncUzOIkgxU5YYbSU8PCZh9v4klQklzcX9Q/exec"
+      method="post"
+    >
+      <!-- Name Input -->
+      <b-form-group id="nameInput" :label="$t('nameLabel')" label-for="name">
+        <b-form-input
+          id="name"
+          v-model="formData.name"
+          :placeholder="$t('namePH')"
+          name="name"
+          required
+        ></b-form-input>
+      </b-form-group>
+      <!-- Mail Input -->
+      <b-form-group
+        id="mailInput"
+        :description="$t('mailDis')"
+        :label="$t('mailLabel')"
+        label-for="mail"
       >
-        <!-- Name Input -->
-        <b-form-group id="nameInput" :label="$t('nameLabel')" label-for="name">
-          <b-form-input
-            id="name"
-            v-model="formData.name"
-            :placeholder="$t('namePH')"
-            name="name"
-            required
-          ></b-form-input>
-        </b-form-group>
-        <!-- Mail Input -->
-        <b-form-group
-          id="mailInput"
-          :description="$t('mailDis')"
-          :label="$t('mailLabel')"
-          label-for="mail"
-        >
-          <b-form-input
-            id="mail"
-            v-model="formData.email"
-            :placeholder="$t('mailPH')"
-            name="email"
-            type="email"
-            required
-          ></b-form-input>
-        </b-form-group>
-        <!-- Message Input -->
-        <b-form-group
-          id="messageInput"
-          :label="$t('msgLabel')"
-          label-for="textarea"
-        >
-          <b-form-textarea
-            id="textarea"
-            v-model="formData.message"
-            :placeholder="$t('msgPH')"
-            name="message"
-            required
-            rows="3"
-            max-rows="6"
-          ></b-form-textarea>
-        </b-form-group>
-        <!-- submit BTN -->
-        <b-button :disabled="formSended" class="submitBtn" type="submit"
-          >{{ $t('submitBtn') }}
-        </b-button>
-      </b-form>
-      <!-- Thx Message -->
-      <div v-else>
-        <h2>
-          {{ $t('thx') }}
-        </h2>
-        <h2>
-          {{ $t('getBack') }}
-        </h2>
-      </div>
-    </section>
+        <b-form-input
+          id="mail"
+          v-model="formData.email"
+          :placeholder="$t('mailPH')"
+          name="email"
+          type="email"
+          required
+        ></b-form-input>
+      </b-form-group>
+      <!-- Message Input -->
+      <b-form-group
+        id="messageInput"
+        :label="$t('msgLabel')"
+        label-for="textarea"
+      >
+        <b-form-textarea
+          id="textarea"
+          v-model="formData.message"
+          :placeholder="$t('msgPH')"
+          name="message"
+          required
+          no-resize
+          rows="6"
+          max-rows="6"
+        ></b-form-textarea>
+      </b-form-group>
+      <!-- submit BTN -->
+      <b-button :disabled="formSended" class="submitBtn" type="submit"
+        >{{ $t('submitBtn') }}
+      </b-button>
+    </b-form>
+    <!-- Thx Message -->
+    <div v-else>
+      <h2>
+        {{ $t('thx') }}
+      </h2>
+      <h2>
+        {{ $t('getBack') }}
+      </h2>
+    </div>
   </b-container>
 </template>
 
@@ -155,6 +154,23 @@ export default {
 <style lang="scss" scoped>
 .section_title {
   color: $clr-accent;
+}
+
+#textarea {
+  /* scrollbar firefox 64 */
+  scrollbar-width: thin;
+  scrollbar-color: $clr-accent2 $clr-light;
+  /* scrollbar webkit */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $clr-accent2;
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $clr-light;
+  }
 }
 
 .submitBtn {

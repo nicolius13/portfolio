@@ -166,7 +166,7 @@ export default {
 
 <style lang="scss" scoped>
 .section {
-  padding-bottom: 0;
+  padding: 3rem 0 0 0;
 }
 .title {
   font-weight: $fw-reg;
