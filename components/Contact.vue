@@ -9,6 +9,7 @@
         action="https://script.google.com/macros/s/AKfycbyn46ncUzOIkgxU5YYbSU8PCZh9v4klQklzcX9Q/exec"
         method="post"
       >
+        <!-- Name Input -->
         <b-form-group id="nameInput" :label="$t('nameLabel')" label-for="name">
           <b-form-input
             id="name"
@@ -18,7 +19,7 @@
             required
           ></b-form-input>
         </b-form-group>
-
+        <!-- Mail Input -->
         <b-form-group
           id="mailInput"
           :description="$t('mailDis')"
@@ -34,6 +35,7 @@
             required
           ></b-form-input>
         </b-form-group>
+        <!-- Message Input -->
         <b-form-group
           id="messageInput"
           :label="$t('msgLabel')"
@@ -49,10 +51,12 @@
             max-rows="6"
           ></b-form-textarea>
         </b-form-group>
+        <!-- submit BTN -->
         <b-button :disabled="formSended" class="submitBtn" type="submit"
           >{{ $t('submitBtn') }}
         </b-button>
       </b-form>
+      <!-- Thx Message -->
       <div v-else>
         <h2>
           {{ $t('thx') }}
@@ -85,12 +89,10 @@ export default {
     // get all data in form and return object
     getFormData(form) {
       const elements = form.elements;
-      // let honeypot;
 
       const fields = Object.keys(elements)
         .filter(function(k) {
           if (elements[k].name === 'honeypot') {
-            // honeypot = elements[k].value;
             return false;
           }
           return true;

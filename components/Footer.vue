@@ -38,6 +38,7 @@
 <script>
 export default {
   methods: {
+    // Languages switcher
     switchLang() {
       if (this.$i18n.locale === 'en') {
         this.$i18n.setLocale('fr');

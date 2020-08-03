@@ -4,6 +4,7 @@
       <b-col class="d-flex flex-column">
         <div class="mt-auto">
           <b-row>
+            <!-- Hello -->
             <b-col
               class="d-flex align-items-center justify-content-center justify-content-md-start"
               cols="12"
@@ -12,6 +13,7 @@
             </b-col>
           </b-row>
           <b-row>
+            <!-- Name -->
             <b-col
               class="d-flex align-items-center justify-content-center justify-content-md-start"
               cols="12"
@@ -20,6 +22,7 @@
             </b-col>
           </b-row>
           <b-row>
+            <!-- Front-end dev -->
             <b-col class="d-md-none">
               <p :style="width" class="section_subtitle subtitle">
                 Front-end Dev
@@ -32,6 +35,7 @@
             </b-col>
           </b-row>
         </div>
+        <!-- Social links (when screen width > 768px) -->
         <b-row v-if="windowWidth > 768" class="mt-auto">
           <SocialLinks />
         </b-row>
@@ -45,10 +49,12 @@
           alt="A photo of me :)"
         />
       </b-col>
+      <!-- social links (when screen width < 768px) -->
       <b-col v-if="windowWidth < 768">
         <SocialLinks />
       </b-col>
     </b-row>
+    <!-- Call to action SEE MY WORK -->
     <div class="text-center text-md-right mt-2 mt-md-5">
       <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
         {{ $t('come') }}
@@ -93,10 +99,12 @@ export default {
   },
 
   watch: {
+    // reset the typers on language change
     '$i18n.locale'() {
       this.resetTyper('typerHello');
       this.resetTyper('typerName');
     },
+    // recalculate the subtitle width on window resize
     windowWidth() {
       this.calcWidth();
     },
@@ -109,7 +117,7 @@ export default {
   },
   methods: {
     calcWidth() {
-      // get the tab-content element (available when intro tabis closed)
+      // get the tab-content element (available even when intro tab is closed)
       const el = document.getElementsByClassName('tab-content')[0];
       // get the style of that element
       const computedStyle = getComputedStyle(el);

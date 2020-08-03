@@ -13,6 +13,7 @@
         <p>
           {{ $t('present2') }}
         </p>
+        <!-- CV Link -->
         <a
           :href="$i18n.locale == 'en' ? linkCV.en : linkCV.fr"
           class="mb-3 d-inline-block"
@@ -21,6 +22,7 @@
           ><font-awesome-icon :icon="['fas', 'download']" />
           {{ $t('resume') }}</a
         >
+        <!-- See Work link -->
         <p>
           {{ $t('check') }}
           <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
@@ -28,7 +30,7 @@
             <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
           </a>
         </p>
-
+        <!-- Technologies -->
         <h3 class="mb-3">{{ $t('technos') }}</h3>
         <b-row align-v="center" align-h="center">
           <b-col
