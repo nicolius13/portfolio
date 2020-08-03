@@ -45,6 +45,7 @@ export default {
       } else {
         this.$i18n.setLocale('en');
       }
+      this.$emit('langChange');
     },
   },
 };
