@@ -71,31 +71,6 @@ a:hover {
   color: $clr-accent;
 }
 
-// TABS
-.tab-content {
-  position: relative;
-  overflow: hidden;
-  padding: 2rem 1.2rem;
-  background: $clr-light;
-  border-radius: 5px;
-  transition: min-height 0.5s ease-in-out, max-height 0.5s ease-in-out;
-
-  & .tab-pane {
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    & .tab-pane:not(.active) {
-      display: block;
-      opacity: 0;
-    }
-  }
-}
-
-.fade {
-  transition: opacity 0.5s ease-in-out;
-}
-
 /* Typography */
 
 h1,
@@ -122,6 +97,31 @@ h3 {
   padding: 0.25rem 1rem;
   margin-bottom: 2rem;
 }
+
+// TABS
+.tab-content {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1.2rem;
+  background: $clr-light;
+  border-radius: 5px;
+  transition: min-height 0.5s ease-in-out, max-height 0.5s ease-in-out;
+
+  .tab-pane {
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .tab-pane:not(.active) {
+      display: block;
+      opacity: 0;
+    }
+  }
+  .fade {
+    transition: opacity 0.5s ease-in-out;
+  }
+}
+
 @media (min-width: 768px) {
   .tab-content {
     padding: 2rem 3.5rem;
@@ -129,9 +129,6 @@ h3 {
   .subtitle {
     margin-left: -2rem;
     width: calc(100% + 2rem);
-  }
-  .section {
-    padding: 3rem 0;
   }
 }
 

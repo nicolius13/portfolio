@@ -1,22 +1,20 @@
 <template>
-  <b-container>
-    <section class="my-work text-center text-md-left">
-      <h2 class="section_title">{{ $t('work') }}</h2>
-      <b-row>
-        <b-col>
-          <p class="section_subtitle subtitle">
-            {{ $t('make') }}
-          </p>
-        </b-col>
-      </b-row>
-      <b-row>
-        <ProjectCard
-          v-for="project in projects"
-          :key="project.title"
-          :project="project"
-        />
-      </b-row>
-    </section>
+  <b-container class="my-work text-center text-md-left">
+    <h2 class="section_title">{{ $t('work') }}</h2>
+    <b-row>
+      <b-col>
+        <p class="section_subtitle subtitle">
+          {{ $t('make') }}
+        </p>
+      </b-col>
+    </b-row>
+    <b-row>
+      <ProjectCard
+        v-for="project in projects"
+        :key="project.title"
+        :project="project"
+      />
+    </b-row>
   </b-container>
 </template>
 

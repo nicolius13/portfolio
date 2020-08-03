@@ -1,57 +1,54 @@
 <template>
-  <b-container>
-    <section class="about-me text-center text-md-left">
-      <h2 class="section_title section_about">{{ $t('who') }}</h2>
-      <p class="section_subtitle subtitle">
-        {{ $t('belgian') }}
-      </p>
+  <b-container class="about-me text-center text-md-left">
+    <h2 class="section_title section_about">{{ $t('who') }}</h2>
+    <p class="section_subtitle subtitle">
+      {{ $t('belgian') }}
+    </p>
 
-      <div class="about-me_body">
-        <p>
-          {{ $t('present1') }}
-        </p>
-        <p>
-          {{ $t('present2') }}
-        </p>
-        <!-- CV Link -->
-        <a
-          :href="$i18n.locale == 'en' ? linkCV.en : linkCV.fr"
-          class="mb-3 d-inline-block"
-          target="_blank"
-          download
-          ><font-awesome-icon :icon="['fas', 'download']" />
-          {{ $t('resume') }}</a
+    <div class="about-me_body">
+      <p>
+        {{ $t('present1') }}
+      </p>
+      <p>
+        {{ $t('present2') }}
+      </p>
+      <!-- CV Link -->
+      <a
+        :href="$i18n.locale == 'en' ? linkCV.en : linkCV.fr"
+        class="mb-3 d-inline-block"
+        target="_blank"
+        download
+        ><font-awesome-icon :icon="['fas', 'download']" /> {{ $t('resume') }}</a
+      >
+      <!-- See Work link -->
+      <p>
+        {{ $t('check') }}
+        <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
+          {{ $t('developed') }}
+          <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
+        </a>
+      </p>
+      <!-- Technologies -->
+      <h3 class="mb-3">{{ $t('technos') }}</h3>
+      <b-row align-v="center" align-h="center">
+        <b-col
+          :id="`popover-${logo.id}-${logo.name}`"
+          v-for="logo in logos"
+          :key="logo.id"
+          class="techLogos m-2 m-md-3"
+          cols="3"
         >
-        <!-- See Work link -->
-        <p>
-          {{ $t('check') }}
-          <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
-            {{ $t('developed') }}
-            <font-awesome-icon :icon="['fas', 'arrow-right']" class="arrow" />
-          </a>
-        </p>
-        <!-- Technologies -->
-        <h3 class="mb-3">{{ $t('technos') }}</h3>
-        <b-row align-v="center" align-h="center">
-          <b-col
-            :id="`popover-${logo.id}-${logo.name}`"
-            v-for="logo in logos"
-            :key="logo.id"
-            class="techLogos m-2 m-md-3"
-            cols="3"
-          >
-            <b-img :src="logo.img" fluid></b-img>
-            <b-popover
-              :target="`popover-${logo.id}-${logo.name}`"
-              :content="logo.name"
-              triggers="hover focus"
-              placement="top"
-              variant="primary"
-            ></b-popover>
-          </b-col>
-        </b-row>
-      </div>
-    </section>
+          <b-img :src="logo.img" fluid></b-img>
+          <b-popover
+            :target="`popover-${logo.id}-${logo.name}`"
+            :content="logo.name"
+            triggers="hover focus"
+            placement="top"
+            variant="primary"
+          ></b-popover>
+        </b-col>
+      </b-row>
+    </div>
   </b-container>
 </template>
 

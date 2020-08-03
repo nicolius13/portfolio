@@ -54,7 +54,7 @@
       </b-overlay>
     </b-tabs>
 
-    <Footer />
+    <Footer @langChange="updateDimension(true, `tab-${tabIndex}`)" />
   </b-container>
 </template>
 
@@ -83,13 +83,14 @@ export default {
   mounted() {
     // Loading
     setTimeout(() => {
-      this.loading = false;
+      // this.loading = false;
     }, 500);
     // calc the window size on window load once
     window.addEventListener(
       'load',
       () => {
         this.windowWidth = window.innerWidth;
+        this.loading = false;
         this.updateDimension(true, 'tab-0');
       },
       {
@@ -100,6 +101,7 @@ export default {
     // add event listener on window resize
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
+      this.updateDimension(true, `tab-${this.tabIndex}`);
     };
   },
   methods: {
