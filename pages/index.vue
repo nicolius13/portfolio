@@ -53,7 +53,7 @@
               v-b-popover.hover.top="'Contact Me'"
             />
           </template>
-          <Contact />
+          <Contact @formSended="updateDimension(true, `tab-${tabIndex}`)" />
         </b-tab>
       </b-overlay>
     </b-tabs>

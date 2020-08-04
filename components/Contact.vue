@@ -52,8 +52,9 @@
         ></b-form-textarea>
       </b-form-group>
       <!-- submit BTN -->
-      <b-button :disabled="formSended" class="submitBtn" type="submit"
-        >{{ $t('submitBtn') }}
+      <b-button :disabled="formSended" class="submitBtn" type="submit">
+        <span v-if="!formBeingSend">{{ $t('submitBtn') }}</span>
+        <b-spinner v-else small variant="light"></b-spinner>
       </b-button>
     </b-form>
     <!-- Thx Message -->
@@ -80,6 +81,7 @@ export default {
         formGoogleSheetName: '',
         formGoogleSendEmail: '',
       },
+      formBeingSend: false,
       formSended: false,
     };
   },
@@ -116,7 +118,9 @@ export default {
     handleFormSubmit(event) {
       // handles form submit
       event.preventDefault(); // we are submitting via xhr below
+      this.formBeingSend = true;
       const form = event.target;
+      // Get the form datas
       this.getFormData(form);
       const data = this.formData;
 
@@ -133,10 +137,13 @@ export default {
         if (xhr.readyState === 4 && xhr.status === 200) {
           // displayd tank you
           this.formSended = true;
+          // resize the tab
+          this.$emit('formSended');
           // reset the form
           this.formData.message = '';
           this.formData.name = '';
           this.formData.email = '';
+          this.formBeingSend = false;
         }
       };
       // url encode form data for sending as post data
@@ -175,6 +182,7 @@ export default {
 
 .submitBtn {
   background-color: $clr-accent;
+  width: 80px;
   border: none;
   transition: all 0.25s ease-in-out;
 
