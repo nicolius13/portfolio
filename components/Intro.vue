@@ -55,7 +55,7 @@
       </b-col>
     </b-row>
     <!-- Call to action SEE MY WORK -->
-    <div class="text-center text-md-right mt-2 mt-md-5">
+    <div class="seeWorkDiv text-center text-md-right">
       <a @click="$emit('seeWork')" class="seeWork text-right" href="#">
         {{ $t('come') }}
         <div class="d-bloc d-md-inline text-center">
@@ -165,9 +165,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section {
-  padding: 3rem 0 0 0;
-}
 .title {
   font-weight: $fw-reg;
   margin-bottom: 0.5rem;
@@ -192,6 +189,10 @@ export default {
   }
 }
 
+.seeWorkDiv {
+  margin-top: 0.5rem;
+}
+
 .seeWork {
   @include font-size(1.75rem);
 
@@ -205,6 +206,8 @@ export default {
 
 @media (min-width: 768px) {
   .intro {
+    padding: 3rem 0 0 0;
+
     .img {
       z-index: 9;
     }
@@ -219,6 +222,9 @@ export default {
       margin-right: -1rem;
       margin-bottom: 1.3rem;
     }
+  }
+  .seeWorkDiv {
+    margin-top: 5rem;
   }
 }
 </style>
