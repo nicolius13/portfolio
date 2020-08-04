@@ -53,7 +53,7 @@
         </b-tab>
       </b-overlay>
     </b-tabs>
-
+    <ScrollTop />
     <Footer @langChange="updateDimension(true, `tab-${tabIndex}`)" />
   </b-container>
 </template>
@@ -62,16 +62,18 @@
 import Intro from '@/components/Intro';
 import About from '@/components/About';
 import Work from '@/components/Work';
-import Footer from '@/components/Footer';
 import Contact from '@/components/Contact';
+import ScrollTop from '@/components/UI/ScrollTop';
+import Footer from '@/components/Footer';
 
 export default {
   components: {
     Intro,
     About,
     Work,
-    Footer,
     Contact,
+    ScrollTop,
+    Footer,
   },
   data() {
     return {
