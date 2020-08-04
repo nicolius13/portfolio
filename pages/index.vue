@@ -19,7 +19,11 @@
               v-b-popover.hover.top="'Home'"
             />
           </template>
-          <Intro :windowWidth="windowWidth" @seeWork="tabIndex = 1" />
+          <Intro
+            :loading="loading"
+            :windowWidth="windowWidth"
+            @seeWork="tabIndex = 1"
+          />
         </b-tab>
         <!-- WORK Tab -->
         <b-tab ref="tab-1" @update:active="updateDimension($event, 'tab-1')">

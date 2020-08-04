@@ -80,6 +80,10 @@ export default {
       type: Number,
       default: 0,
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -108,13 +112,15 @@ export default {
     windowWidth() {
       this.calcWidth();
     },
+    loading() {
+      if (this.loading === false) {
+        // create the typers
+        this.resetTyper('typerHello');
+        this.resetTyper('typerName');
+      }
+    },
   },
 
-  mounted() {
-    // create the typers
-    this.resetTyper('typerHello');
-    this.resetTyper('typerName');
-  },
   methods: {
     calcWidth() {
       // get the tab-content element (available even when intro tab is closed)
