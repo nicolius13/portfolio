@@ -36,6 +36,7 @@ export default {
             'Project 7 created for the Front-End developer path of OpenClassroom: Launch your own restaurant review site.',
           description_fr:
             "7eme projet créé pour le parcour 'Dévelopeur d'application - frontend' d'OpenClassroom : lancez votre propre site d'avis de restaurant",
+          technos: ['Nuxt', 'Bootstrap Vue', "Google API's"],
           liveLink: 'https://nicolius13.github.io/resto_rating',
           codeLink: 'https://github.com/nicolius13/resto_rating',
         },
@@ -48,6 +49,8 @@ export default {
             'Redesign and switch to WordPress the bambous.be web site',
           description_fr:
             'Modernisation et passage au CMS Wordpress du site bambous.be',
+          technos: ['Wordpress'],
+
           liveLink: 'https://bambous.be/',
         },
         // Projet Dungeon
@@ -59,6 +62,7 @@ export default {
             'Project 6 created for the Front-End developer path of OpenClassroom: Build a turn-based board game in JavaScript.',
           description_fr:
             "6eme projet créé pour le parcour 'Dévelopeur d'application - frontend' d'OpenClassroom : Créez un jeu de plateau tour par tour en JS",
+          technos: ['JS', 'JQuery', 'Vue'],
           liveLink: 'https://nicolius13.github.io/Dungeon_code',
           codeLink: 'https://github.com/nicolius13/Dungeon_code',
         },
@@ -72,6 +76,7 @@ export default {
             'Project 8 created for the Front-End developer path of OpenClassroom: Enhance an existing project.',
           description_fr:
             "8eme projet créé pour le parcour 'Dévelopeur d'application - frontend' d'OpenClassroom : Reprenez et améliorez un projet existant",
+          technos: ['JS', 'Jasmine'],
           liveLink: 'https://nicolius13.github.io/testing-todo',
           codeLink: 'https://github.com/nicolius13/testing-todo',
         },
@@ -85,6 +90,7 @@ export default {
             'Project 5 created for the Front-End developer path of OpenClassroom: Create a quotes generator.',
           description_fr:
             "5eme projet créé pour le parcour 'Dévelopeur d'application - frontend' d'OpenClassroom : Imaginez un générateur de citation",
+          technos: ['JS', 'CSS', 'Bootstrap'],
           liveLink: 'https://nicolius13.github.io/Quotes-generator',
           codeLink: 'https://github.com/nicolius13/Quotes-generator',
         },
@@ -98,6 +104,7 @@ export default {
             "Project 3 created for the Front-End developer path of OpenClassroom: Analyze a client's needs for their film festival.",
           description_fr:
             "3eme projet créé pour le parcour 'Dévelopeur d'application - frontend' d'OpenClassroom : Analysez les besoins de votre client pour son festival de films",
+          technos: ['JS', 'CSS', 'Bootstrap'],
           liveLink: 'https://nicolius13.github.io/simple-film-festival-website',
           codeLink:
             'https://github.com/nicolius13/simple-film-festival-website',

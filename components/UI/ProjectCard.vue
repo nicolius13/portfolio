@@ -17,6 +17,14 @@
           $i18n.locale == 'en' ? project.description_en : project.description_fr
         }}
       </b-card-text>
+      <b-badge
+        v-for="techno in project.technos"
+        :key="techno"
+        variant="info"
+        class="mr-2"
+      >
+        {{ techno }}
+      </b-badge>
 
       <template v-slot:footer>
         <a v-if="project.liveLink" :href="project.liveLink" target="_blank">
