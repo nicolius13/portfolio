@@ -19,6 +19,6 @@
   z-index: -1;
   background: url('~assets/img/code_back1.jpg');
   background-size: cover;
-  opacity: 0.2;
+  opacity: 0.25;
 }
 </style>

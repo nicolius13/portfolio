@@ -29,7 +29,7 @@ export default {
   mailLabel: 'Your Email Adress:',
   mailPH: 'Enter email',
   mailDis: "I'll never share your email with anyone else.",
-  msgLabel: 'your Message:',
+  msgLabel: 'Your Message:',
   msgPH: 'Enter something...',
   submitBtn: 'Submit',
   thx: 'Thank You!',
