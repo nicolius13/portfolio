@@ -53,6 +53,19 @@ export default {
 
           liveLink: 'https://bambous.be/',
         },
+        // Projet Weather app
+        {
+          title: 'Weather app',
+          imgSrc: require('~/assets/img/work/weatherApp.jpg'),
+          imgAlt: 'Weather App img',
+          description_en:
+            'Quick little weather app done for devchallenges.io. I used Nuxt and Bootstrap-Vue to do it. Had real fun coding it :). The weather API used is not really precise btw :)',
+          description_fr:
+            "Petite application météo rapidement faite pour devchallenges.io. J'ai vraiment eu du plaisir à coder cette app avec Nuxt et Bootstrap-Vue :). L'API météo utilisée n'est pas super précise btw :)",
+          technos: ['Nuxt', 'Bootstrap Vue', 'metaweather API'],
+          liveLink: 'https://nicolius13.github.io/weather',
+          codeLink: 'https://github.com/nicolius13/weather',
+        },
         // Projet Dungeon
         {
           title: 'Dungeon',
