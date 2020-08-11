@@ -24,6 +24,15 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description },
+      { property: 'og:title', content: "Nicolas's portfolio" },
+      { property: 'og:description', content: 'My superb portfolio' },
+      {
+        prefix: 'og: http://ogp.me/ns#',
+        property: 'og:image',
+        content: 'https://nicolas-vastrade.tk/portrait.JPG',
+      },
+      { property: 'og:url', content: 'https://nicolas-vastrade.tk' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
     link: [
       {
