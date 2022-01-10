@@ -12,11 +12,11 @@ export default {
 
   // ABOUT page
   who: 'Qui je suis',
-  belgian: 'Développeur front-end belge basé au Laos',
+  belgian: 'Développeur front-end',
   present1:
-    'Hello, je suis Nicolas Vastrade, je suis un Développeur Freelance spécialisé en Vue.js/Nuxt.js',
+    'Hello, je suis Nicolas Vastrade, je suis un Développeur spécialisé en Vue.js/Nuxt.js',
   present2:
-    "J'ai commencé par travailler dans l'industrie pharmaceutique comme technicien de laboratoire. Ensuite, j'ai profité d'un déménagement au Sénégal pour rediriger ma carrière et comme j'ai toujours été passioné par l'univers du web, je me suis décidé à m'autoformer en développement web dans un premier temps. J'ai ensuite suivi la formation certifiée 'Développeur d'Application - Frontend' d'OpenClassroom pour arrivée à mon goal, devenir freelance en web development. Je suis maintenant à la recherche de nouveaux projets!",
+    "J'ai commencé par travailler dans l'industrie pharmaceutique comme technicien de laboratoire. J'ai ensuite profité d'un déménagement au Sénégal pour rediriger ma carrière et comme j'ai toujours été passionné par l'univers du web, je me suis décidé à m'autoformer en développement web dans un premier temps. Après un déménagement au Laos J'ai suivi la formation certifiée 'Développeur d'Application - Frontend' d'OpenClassroom pour arriver à mon goal, travailler en développement web. Je suis maintenant à la recherche de nouveaux projets!",
   resume: 'Mon CV',
   check: "Venez voir ce que j'ai",
   developed: 'déja développé',

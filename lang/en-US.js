@@ -12,11 +12,11 @@ export default {
 
   // ABOUT page
   who: 'Who I am',
-  belgian: 'Belgian Front-end developer based in Laos',
+  belgian: 'Front-end developer',
   present1:
-    "Hello, I'm Nicolas Vastrade, I'm a Freelance Developer specialized in Vue.Js/Nuxt.js.",
+    "Hello, I'm Nicolas Vastrade, I'm a Developer specialized in Vue.Js/Nuxt.js.",
   present2:
-    "I used to work as a lab technologist in the pharmaceutical industry. When I moved to Senegal I took this opportunity to make a career change. I've always been passionate about IT and the web world and therefore decided to self-train in web development at first. I then followed the ‘Front-end Developer’ Certified Training on OpenClassroom to pursue my goal to be a freelancer in web development. I'm now looking for new projects! ",
+    "I used to work as a lab technologist in the pharmaceutical industry. When I moved to Senegal I took this opportunity to make a career change. I've always been passionate about IT and the web world and therefore decided to self-train in web development at first. After I moved to Laos I followed the ‘Front-end Developer’ Certified Training on OpenClassroom to pursue my goal, to work in web development. I'm now looking for new projects!",
   resume: 'My Resume',
   check: 'Come check out what I’ve',
   developed: 'already developed',
