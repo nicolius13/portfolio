@@ -21,7 +21,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/vue-fontawesome": "^0.1.10",
     "bootstrap-vue": "^2.15.0",
-    "cross-env": "^5.2.0",
     "nuxt": "^2.4.0",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-i18n": "^6.13.1",
@@ -29,6 +28,7 @@
     "vue-typed-js": "^0.1.2"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^10.0.1",
